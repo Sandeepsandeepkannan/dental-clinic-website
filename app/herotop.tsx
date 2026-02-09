@@ -10,7 +10,7 @@ export default function Home() {
   const images = [
   
     "https://kimayaclinique.com/image/ban-1.webp",
-    "https://kimayaclinique.com/image/ban-3.webp",
+    "https://www.luzo.app/_next/image?url=https%3A%2F%2Fcdn.luzo.app%2Fsalon_photos%2F91600b7d-7dfe-4b9c-9886-6d80ab24a7e0.jpg&w=3840&q=75",
     	"https://kimayaclinique.com/image/ban-4.webp"
    
    ,
