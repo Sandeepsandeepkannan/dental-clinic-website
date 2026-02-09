@@ -26,15 +26,21 @@ export default function HairServicesSection() {
 
   return (
     <section className="bg-white py-20 px-12 ">
-
+       
+      
       {/* Header */}
       <div className="flex items-center justify-between mb-12">
 
         {/* Title */}
         <div>
           <h2 className="text-[40px] font-serif text-black mb-2">
+            <h2 className="text-[40px] text-white font-serif text-black mb-2">
             Hair
           </h2>
+          </h2>
+           <h2 className="text-4xl md:text-5xl font-semibold text-slate-800 mb-8">
+          Hair
+        </h2>
 
           <div className="w-16 h-[3px] bg-yellow-500"></div>
         </div>
