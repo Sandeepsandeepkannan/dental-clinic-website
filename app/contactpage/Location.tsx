@@ -1,4 +1,4 @@
-export default function Dental() {
+export default function Dentalinabout() {
   return (
     <section className="bg-white py-32 px-6 text-center">
 
@@ -7,7 +7,7 @@ export default function Dental() {
           
 
           <h2 className="text-4xl md:text-5xl font-semibold text-slate-800 mb-8">
-          About Us
+          Contact Us
         </h2>
        
 

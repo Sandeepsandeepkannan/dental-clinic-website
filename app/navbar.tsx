@@ -15,7 +15,7 @@ export default function Navbar() {
         <div className="text-3xl font-bold tracking-wider">
           Aesthetiq
           <p className="text-xs font-light tracking-wide">
-            glow with radiance
+           
           </p>
         </div>
 
@@ -44,8 +44,10 @@ export default function Navbar() {
           </li>
 
           {/* Contact */}
-          <li className="hover:text-yellow-500 cursor-pointer">
-            Contact us
+           <li className="hover:text-yellow-500">
+            <Link href="/contactpage" className="cursor-pointer block">
+              Contact us
+            </Link>
           </li>
 
         </ul>

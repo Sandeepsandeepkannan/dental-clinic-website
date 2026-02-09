@@ -4,7 +4,7 @@ export default function PrivilegeServices() {
 
       {/* Heading */}
       <div className="mb-16 ml-15 text-[30px]">
-        <p className="text-yellow-500 flex items-center gap-2 mb-2">
+        <p className="text-black flex items-center gap-2 mb-2">
           ✦ Services
         </p>
 
