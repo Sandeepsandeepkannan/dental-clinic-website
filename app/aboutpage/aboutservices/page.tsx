@@ -1,3 +1,4 @@
+import Footer from "@/app/Bottombar";
 import OurServices from "./aboutmetop";
 import Dentalinabout from "./mission";
 
@@ -7,6 +8,7 @@ export default function Page(){
       
    <Dentalinabout/>
       <OurServices/>
+      <Footer/>
       
      
       

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
 import Navbar from "./navbar";
 
 const geistSans = Geist({
@@ -15,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aesthetiq Foundation",
+  title: "Aesthetiq",
   description: "Glow with radiance",
 };
 
@@ -30,13 +29,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
 
-        {/* ✅ Navbar */}
+        {/* Navbar inside body */}
         <Navbar />
 
-        {/* ✅ Page Content */}
-        <main>
-          {children}
-        </main>
+        {/* Page Content */}
+        {children}
 
       </body>
     </html>

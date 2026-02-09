@@ -1,3 +1,4 @@
+import Footer from "../Bottombar";
 import HairServicesSection from "./hairservice";
 import OurServicesHero from "./ourservice";
 import SkinServicesSection from "./skinservice";
@@ -12,5 +13,6 @@ export default function Page(){
   <HairServicesSection/>
   
      <SkinServicesSection/>
+     <Footer/>
   </div>
 }
