@@ -32,64 +32,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-white font-serif">
 
-      {/* Navbar */}
-      <nav className="flex items-center justify-between px-12 py-5 bg-black text-white">
-
-        {/* Logo */}
-        <div className="text-3xl font-bold tracking-wider">
-          Aesthetiq 
-          <p className="text-xs font-light tracking-wide">
-            glow with radiance
-          </p>
-        </div>
-
-        {/* Menu */}
-       <ul className="flex gap-10 text-lg items-center">
-
-  {/* Home */}
-  <li className="hover:text-yellow-500">
-    <Link href="/" className="cursor-pointer block">
-      Home
-    </Link>
-  </li>
-
-  {/* About */}
-  <li className="hover:text-yellow-500">
-    <Link href="/aboutpage/aboutservices" className="cursor-pointer block">
-      About us
-    </Link>
-  </li>
-
-  {/* Services */}
-   <li className="hover:text-yellow-500">
-    <Link href="/servicepage" className="cursor-pointer block">
-      Services
-    </Link>
-  </li>
-
-  {/* Contact */}
-  <li className="hover:text-yellow-500 cursor-pointer">
-    Contact us
-  </li>
-
-</ul>
-
-
-        {/* Right Side */}
-        <div className="flex items-center gap-5">
-
-          <button className="bg-yellow-500 text-black px-6 py-2 font-medium">
-            Book Appointment
-          </button>
-
-          <div className="flex gap-3 text-xl">
-            <i className="fa-brands fa-facebook"></i>
-            <i className="fa-brands fa-instagram"></i>
-          </div>
-
-        </div>
-
-      </nav>
+    
 
 
       {/* Hero Section */}
@@ -106,7 +49,7 @@ export default function Home() {
         <div className="max-w-2xl -mt-24 ml-24">
 
           <p className="text-yellow-500 mb-4 text-lg">
-            Discover Personalized <span className="underline">Skin Care</span>
+            
           </p>
 
           <h1 className="text-5xl font-bold leading-tight mb-6">
@@ -140,30 +83,14 @@ export default function Home() {
 
 
         {/* Contact Box */}
-        <div className="absolute top-16 right-12 bg-white text-black px-6 py-4 rounded-xl shadow-lg">
-
-          <div className="flex items-center gap-3 mb-2">
-            📞 <span>Anna Nagar</span>
-            <span className="ml-auto font-semibold">
-              +91 98845 67000
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            📞 <span>Adyar</span>
-            <span className="ml-auto font-semibold">
-              +91 98842 87000
-            </span>
-          </div>
-
-        </div>
+      
 
 
         {/* Chat Box */}
         <div className="absolute bottom-20 right-20 bg-white text-black px-5 py-3 rounded-xl shadow-lg">
 
           <p>
-            Hi! Welcome to <b>Kimaya Clinique!</b>
+            Hi! Welcome to <b>Aesthetiq Foundation!</b>
           </p>
 
         </div>

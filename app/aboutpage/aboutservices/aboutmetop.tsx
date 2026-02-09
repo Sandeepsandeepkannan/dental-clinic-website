@@ -5,7 +5,7 @@ export default function OurServices() {
     <section className="bg-white py-24 px-12 relative">
 
       {/* Heading */}
-      <h2 className="text-4xl font-serif text-black text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-semibold text-slate-800 text-center mb-16">
         Our Services
       </h2>
 
@@ -29,14 +29,14 @@ export default function OurServices() {
               Cosmetic dentistry
             </h3>
 
-            <p className="text-yellow-500 mb-6">
+            <p className="text-black mb-6">
               Improve teeth Color
             </p>
 
           </div>
 
-          <button className="w-full py-4 text-black font-medium bg-gradient-to-r from-[#cfa144] via-[#f5d98c] to-[#cfa144]">
-            LEARN MORE
+          <button className="w-full py-4 text-white font-medium bg-black">
+           Cosmetic
           </button>
 
         </div>
@@ -57,14 +57,14 @@ export default function OurServices() {
               Pediatric dentistry
             </h3>
 
-            <p className="text-yellow-500 mb-6">
+            <p className="text-black mb-6">
               Children's Oral Health
             </p>
 
           </div>
 
-          <button className="w-full py-4 text-black font-medium bg-gradient-to-r from-[#cfa144] via-[#f5d98c] to-[#cfa144]">
-            LEARN MORE
+          <button className="w-full py-4 text-white font-medium bg-black">
+            Pediatric
           </button>
 
         </div>
@@ -85,14 +85,14 @@ export default function OurServices() {
               Orthodontic Braces
             </h3>
 
-            <p className="text-yellow-500 mb-6">
+            <p className="text-black mb-6">
               Teeth Aligning
             </p>
 
           </div>
 
-          <button className="w-full py-4 text-black font-medium bg-gradient-to-r from-[#cfa144] via-[#f5d98c] to-[#cfa144]">
-            LEARN MORE
+          <button className="w-full py-4 text-white font-medium bg-black">
+             Orthodontic
           </button>
 
         </div>
@@ -113,14 +113,14 @@ export default function OurServices() {
               Family dental care
             </h3>
 
-            <p className="text-yellow-500 mb-6">
+            <p className="text-black mb-6">
               Homely Environment
             </p>
 
           </div>
 
-          <button className="w-full py-4 text-black font-medium bg-gradient-to-r from-[#cfa144] via-[#f5d98c] to-[#cfa144]">
-            LEARN MORE
+          <button className="w-full py-4 text-white font-medium bg-black">
+            Family care
           </button>
 
         </div>

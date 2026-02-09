@@ -8,7 +8,7 @@ export default function PrivilegeServices() {
           ✦ Services
         </p>
 
-        <h2 className="text-4xl text-black font-serif text-[40px] font-semibold mb-4">
+        <h2 className="text-4xl md:text-5xl font-semibold text-slate-800 mb-4">
           Privilege services
         </h2>
 
@@ -27,7 +27,7 @@ export default function PrivilegeServices() {
             className="w-full h-36 object-cover rounded-xl mb-4"
           />
 
-          <h3 className="text-lg font-semibold mb-2">Skin</h3>
+          <h3 className="text-lg font-semibold text-black mb-2">Skin</h3>
 
           <p className="text-gray-600 text-sm leading-relaxed">
             Rejuvenate and revitalize your skin with
@@ -45,7 +45,7 @@ export default function PrivilegeServices() {
             className="w-full h-36 object-cover rounded-xl mb-4"
           />
 
-          <h3 className="text-lg font-semibold mb-2">Laser</h3>
+          <h3 className="text-lg text-black font-semibold mb-2">Laser</h3>
 
           <p className="text-gray-600 text-sm leading-relaxed">
             Advanced technology for permanent hair
@@ -63,7 +63,7 @@ export default function PrivilegeServices() {
             className="w-full h-36 object-cover rounded-xl mb-4"
           />
 
-          <h3 className="text-lg font-semibold mb-2">Hair</h3>
+          <h3 className="text-lg text-black font-semibold mb-2">Hair</h3>
 
           <p className="text-gray-600 text-sm leading-relaxed">
             From hair loss treatment to restoration your
@@ -86,7 +86,7 @@ export default function PrivilegeServices() {
             className="w-full h-36 object-cover rounded-xl mb-4"
           />
 
-          <h3 className="text-lg font-semibold mb-2">Dental</h3>
+          <h3 className="text-lg text-black font-semibold mb-2">Dental</h3>
 
           <p className="text-gray-600 text-sm leading-relaxed">
             Smile brighter with top-tier cosmetic and
@@ -104,7 +104,7 @@ export default function PrivilegeServices() {
             className="w-full h-36 object-cover rounded-xl mb-4"
           />
 
-          <h3 className="text-lg font-semibold mb-2">Nail</h3>
+          <h3 className="text-lg text-black font-semibold mb-2">Nail</h3>
 
           <p className="text-gray-600 text-sm leading-relaxed">
             Pamper your nails with our specialized

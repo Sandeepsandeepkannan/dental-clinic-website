@@ -78,7 +78,7 @@ export default function Footer() {
       {/* Bottom Text */}
       <div className="max-w-5xl mx-auto text-center text-sm text-gray-300 leading-relaxed">
 
-        Luxe Dental Clinic are independently owned and operated by licensed
+        Aesthetiq Foundation Clinic are independently owned and operated by licensed
         dentists as per Dental Council terms and Conditions. Copyright © 2019
         Luxe Dental Clinic. All Rights Reserved
 

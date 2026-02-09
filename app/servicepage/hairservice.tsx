@@ -25,7 +25,7 @@ export default function HairServicesSection() {
   ];
 
   return (
-    <section className="bg-white py-20 px-12">
+    <section className="bg-white py-20 px-12 ">
 
       {/* Header */}
       <div className="flex items-center justify-between mb-12">
