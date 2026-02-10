@@ -8,8 +8,9 @@ export default function App() {
   return ( <div>
            <Home/>
             <ExpertiseSection/>
-           <PrivilegeServices/>
+           
            <DentalInfoSectionpage/>
+           <PrivilegeServices/>
            <Footernew/>
         </div>
   );

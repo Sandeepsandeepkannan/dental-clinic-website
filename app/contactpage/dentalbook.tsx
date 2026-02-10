@@ -31,7 +31,7 @@ export default function DentalBooking() {
       <div className="flex items-center justify-between px-8 py-4 bg-white">
         {/* Logo */}
         <div className="bg-gray-800 px-6 py-4 rounded-lg">
-          <div className="text-orange-500 text-2xl font-bold">Aesthetiq:)</div>
+          <div className="text-white text-2xl font-bold">Aesthetiq:)</div>
           <div className="text-white text-xs tracking-widest">Foundation</div>
         </div>
 
@@ -115,7 +115,7 @@ export default function DentalBooking() {
           <div className="flex items-center gap-6">
             <div>
               <h3 className="text-white text-4xl font-bold mb-2">NO COST EMI</h3>
-              <p className="text-yellow-500 text-lg">Available across all Chennai clinics</p>
+              <p className="text-white text-lg">Available across all Chennai clinics</p>
             </div>
 
             <div className="bg-yellow-500 rounded-full px-8 py-4">

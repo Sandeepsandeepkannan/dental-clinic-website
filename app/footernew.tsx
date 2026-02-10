@@ -12,7 +12,7 @@ export default function Footernew() {
           {/* Column 1 - Logo and Description */}
           <div>
             <div className="mb-6">
-              <h2 className="text-4xl font-serif mb-1">KIMAYA</h2>
+              <h2 className="text-4xl font-serif mb-1">Aesthetiq</h2>
               <p className="text-sm text-gray-400 italic">glow with radiance</p>
             </div>
             <p className="text-gray-300 leading-relaxed">
