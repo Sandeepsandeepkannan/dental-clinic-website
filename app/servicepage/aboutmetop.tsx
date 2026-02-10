@@ -35,7 +35,7 @@ export default function OurServices() {
 
           </div>
 
-          <button className="w-full py-4 text-white font-medium bg-black">
+          <button className="w-full py-4 text-black font-medium bg-gray-100">
            Cosmetic
           </button>
 
@@ -63,7 +63,7 @@ export default function OurServices() {
 
           </div>
 
-          <button className="w-full py-4 text-white font-medium bg-black">
+          <button className="w-full py-4 text-black font-medium bg-gray-100">
             Pediatric
           </button>
 
@@ -91,7 +91,7 @@ export default function OurServices() {
 
           </div>
 
-          <button className="w-full py-4 text-white font-medium bg-black">
+          <button className="w-full py-4 text-black font-medium bg-gray-100">
              Orthodontic
           </button>
 
@@ -119,7 +119,7 @@ export default function OurServices() {
 
           </div>
 
-          <button className="w-full py-4 text-white font-medium bg-black">
+          <button className="w-full py-4 text-black font-medium bg-gray-100">
             Family care
           </button>
 

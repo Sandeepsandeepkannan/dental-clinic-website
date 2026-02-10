@@ -1,4 +1,6 @@
 import Footer from "../Bottombar";
+import Footernew from "../footernew";
+import OurServices from "./aboutmetop";
 import HairServicesSection from "./hairservice";
 import OurServicesHero from "./ourservice";
 import SkinServicesSection from "./skinservice";
@@ -7,12 +9,11 @@ import SkinServicesSection from "./skinservice";
 export default function Page(){
   return <div>
    <OurServicesHero/>   
-   <div className="h-32 ">
-
-   </div>
+ 
   <HairServicesSection/>
   
      <SkinServicesSection/>
-     <Footer/>
+     <OurServices/>
+     <Footernew/>
   </div>
 }

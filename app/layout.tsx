@@ -1,22 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./global.css";
 import Navbar from "./navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Aesthetiq",
-  description: "Glow with radiance",
-};
 
 export default function RootLayout({
   children,
@@ -24,16 +10,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    <html lang="en" className="bg-white">
+      <body 
+         className={` bg-white  antialiased min-h-screen bg-white`}
       >
 
         {/* Navbar inside body */}
         <Navbar />
 
-        {/* Page Content */}
-        {children}
+       <main className="min-h-screen">
+  {children}
+</main>
 
       </body>
     </html>
