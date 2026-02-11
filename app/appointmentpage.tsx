@@ -1,7 +1,7 @@
 "use client";
 export const dynamic = "force-dynamic";
 import React, { useState } from "react";
-import { X, Calendar, ChevronDown } from "lucide-react";
+import { X, Calendar, ChevronDown, ShieldCheck, MapPin } from "lucide-react";
 
 interface AppointmentModalProps {
   open: boolean;
@@ -26,94 +26,118 @@ export default function AppointmentModal({ open, onClose }: AppointmentModalProp
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Submitted Data:", formData);
-    alert("Appointment request sent!");
     onClose();
   };
 
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-2 sm:p-4">
-      {/* Container: Max height added for small screens with overflow-y-auto */}
-      <div className="relative w-full max-w-5xl max-h-[95vh] overflow-y-auto bg-white rounded-2xl shadow-2xl border border-gray-100 animate-in fade-in zoom-in duration-300">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 backdrop-blur-md p-2 sm:p-4">
+      {/* Modal Container */}
+      <div className="relative w-full max-w-5xl max-h-[95vh] overflow-y-auto bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 animate-in fade-in zoom-in duration-300">
         
-        {/* Header: Responsive text and padding */}
-        <div className="sticky top-0 z-20 bg-white flex justify-between items-center px-5 py-4 md:px-10 md:py-6 border-b border-gray-50">
-          <h2 className="text-xl md:text-4xl font-serif tracking-tight text-slate-800">
-            MAKE AN <span className="text-yellow-600 font-semibold italic">APPOINTMENT</span>
-          </h2>
-          <div className="flex items-center gap-3 md:gap-6">
-            <img 
-              src="https://kimayaclinique.com/image/logo.png" 
-              alt="Logo" 
-              className="h-6 md:h-12 w-auto object-contain hidden xs:block"
-            />
+        {/* Header Section */}
+        <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-md flex justify-between items-center px-6 py-5 md:px-12 md:py-8 border-b border-slate-50">
+          <div className="flex flex-col">
+            <h2 className="text-xl md:text-4xl font-serif tracking-tight text-slate-900">
+              MAKE AN <span className="text-yellow-500 font-semibold">APPOINTMENT</span>
+            </h2>
+            <div className="flex items-center gap-2 mt-1">
+              <div className="w-8 h-0.5 bg-yellow-500 rounded-full" />
+              <span className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Clinical Foundation</span>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-4">
             <button 
               onClick={onClose} 
-              className="p-1.5 hover:bg-gray-100 rounded-full transition-colors text-gray-400 hover:text-black"
+              className="p-2 bg-slate-50 hover:bg-red-50 rounded-full transition-all text-slate-400 hover:text-red-500 group"
             >
-              <X size={24} className="md:w-7 md:h-7" />
+              <X size={24} className="transition-transform group-hover:rotate-90" />
             </button>
           </div>
         </div>
 
-        {/* Form Body: Stacked on mobile, side-by-side on md+ */}
-        <div className="flex flex-col md:flex-row p-5 md:p-12 gap-8 md:gap-10">
+        {/* Form Body */}
+        <div className="flex flex-col md:flex-row p-6 md:p-12 gap-10">
           
-          {/* Left Side (Image): Smaller on mobile, hidden on very short screens if needed */}
-          <div className="relative w-full md:w-[38%] flex justify-center items-center">
-            {/* Background decorative blob - hidden on mobile for cleaner look */}
-            <div className="absolute top-0 left-0 w-full h-[90%] bg-yellow-50/80 rounded-[2rem] -rotate-3 z-0 hidden md:block" />
+          {/* Left Side: Visual Trust Element */}
+          <div className="relative w-full md:w-[35%]">
+            {/* Yellow Glow Decoration */}
+            <div className="absolute top-0 left-0 w-full h-[95%] bg-yellow-50/50 rounded-[3rem] -rotate-2 z-0 hidden md:block" />
             
-            <div className="relative z-10 w-full max-w-[280px] md:max-w-none aspect-[4/5] rounded-2xl overflow-hidden border-[4px] md:border-[6px] border-white shadow-xl rotate-0 md:rotate-1">
+            <div className="relative z-10 w-full aspect-[3/4] rounded-3xl overflow-hidden border-[8px] border-white shadow-2xl">
               <img 
                 src="https://kimayaclinique.com/image/ban-1.webp" 
-                alt="Clinic" 
-                className="w-full h-full object-cover" 
+                alt="Clinic Professional" 
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
               />
+              {/* Removed the blue gradient overlay */}
+              <div className="absolute bottom-6 left-6 flex items-center gap-2 text-white">
+                <ShieldCheck size={18} className="text-yellow-400" />
+                <span className="text-[10px] uppercase font-bold tracking-widest">Authorized Clinical Care</span>
+              </div>
             </div>
           </div>
 
-          {/* Right Side (Form): Full width on mobile */}
-          <div className="w-full md:w-[62%]">
-            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs md:text-sm font-semibold text-gray-700">Name</label>
-                  <input required name="name" value={formData.name} onChange={handleChange} type="text" placeholder="Full name" className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-gray-200 bg-gray-50/30 focus:bg-white focus:ring-2 focus:ring-yellow-500/20 focus:border-yellow-500 outline-none transition-all" />
+          {/* Right Side: Form Inputs */}
+          <div className="w-full md:w-[65%]">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {/* Name */}
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">Name</label>
+                  <input required name="name" value={formData.name} onChange={handleChange} type="text" placeholder="Full name" 
+                    className="w-full px-5 py-3.5 rounded-2xl border border-slate-100 bg-slate-50 focus:bg-white focus:ring-4 focus:ring-yellow-500/5 focus:border-yellow-500 outline-none transition-all placeholder:text-slate-300" 
+                  />
                 </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs md:text-sm font-semibold text-gray-700">Phone</label>
-                  <input required name="phone" value={formData.phone} onChange={handleChange} type="tel" placeholder="Enter Phone No" className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-gray-200 bg-gray-50/30 focus:bg-white focus:ring-2 focus:ring-yellow-500/20 focus:border-yellow-500 outline-none transition-all" />
+                {/* Phone */}
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">Phone</label>
+                  <input required name="phone" value={formData.phone} onChange={handleChange} type="tel" placeholder="Mobile Number" 
+                    className="w-full px-5 py-3.5 rounded-2xl border border-slate-100 bg-slate-50 focus:bg-white focus:ring-4 focus:ring-yellow-500/5 focus:border-yellow-500 outline-none transition-all placeholder:text-slate-300" 
+                  />
                 </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs md:text-sm font-semibold text-gray-700">Date</label>
-                  <div className="relative">
-                    <input required name="date" value={formData.date} onChange={handleChange} type="date" className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-gray-200 bg-gray-50/30 focus:bg-white outline-none transition-all" />
-                  </div>
+                {/* Date */}
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">Preferred Date</label>
+                  <input required name="date" value={formData.date} onChange={handleChange} type="date" 
+                    className="w-full px-5 py-3.5 rounded-2xl border border-slate-100 bg-slate-50 focus:bg-white focus:border-yellow-500 outline-none transition-all" 
+                  />
                 </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs md:text-sm font-semibold text-gray-700">Service</label>
-                  <input name="service" value={formData.service} onChange={handleChange} type="text" placeholder="Enter Service" className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-gray-200 bg-gray-50/30 focus:bg-white outline-none transition-all" />
+                {/* Service */}
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">Department</label>
+                  <input name="service" value={formData.service} onChange={handleChange} type="text" placeholder="e.g. Dental Restoration" 
+                    className="w-full px-5 py-3.5 rounded-2xl border border-slate-100 bg-slate-50 focus:bg-white focus:border-yellow-500 outline-none transition-all placeholder:text-slate-300" 
+                  />
                 </div>
               </div>
 
-              <div className="flex flex-col gap-1.5">
-                <label className="text-xs md:text-sm font-semibold text-gray-700">Message</label>
-                <textarea name="message" value={formData.message} onChange={handleChange} rows={2}  placeholder="Tell us more..." className="w-full px-4 py-2.5 md:py-3 rounded-xl border border-gray-200 bg-gray-50/30 focus:bg-white outline-none resize-none transition-all" />
+              {/* Message */}
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-slate-500 ml-1">Case Brief</label>
+                <textarea name="message" value={formData.message} onChange={handleChange} rows={3} placeholder="Tell us about your requirements..." 
+                  className="w-full px-5 py-4 rounded-2xl border border-slate-100 bg-slate-50 focus:bg-white outline-none resize-none transition-all placeholder:text-slate-300" 
+                />
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 items-center justify-between pt-2 md:pt-4">
-                <div className="relative w-full sm:w-1/2">
-                  <select name="location" value={formData.location} onChange={handleChange} className="w-full px-4 py-3 md:py-4 rounded-xl border border-gray-200 bg-gray-50/30 outline-none appearance-none">
+              {/* Bottom Actions */}
+              <div className="flex flex-col sm:flex-row gap-6 items-center justify-between pt-4">
+                <div className="relative w-full sm:w-1/2 group">
+                  <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-yellow-500 pointer-events-none group-hover:scale-110 transition-transform" size={18} />
+                  <select name="location" value={formData.location} onChange={handleChange} 
+                    className="w-full pl-12 pr-10 py-4 rounded-2xl border border-slate-100 bg-slate-50 outline-none appearance-none font-medium text-slate-700 hover:border-yellow-300 transition-colors"
+                  >
                     <option>Select Location</option>
-                    <option>Mumbai</option>
-                    <option>Delhi</option>
+                    <option>Anna Nagar</option>
+                    <option>Adyar</option>
                   </select>
-                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={18} />
+                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 pointer-events-none" size={18} />
                 </div>
-                <button type="submit" className="w-full sm:w-auto bg-yellow-500 hover:bg-yellow-600 text-black px-8 md:px-10 py-3.5 md:py-4 rounded-xl font-bold shadow-lg transition-all active:scale-95 uppercase text-xs md:text-sm tracking-widest">
-                  Confirm Appointment
+                
+                <button type="submit" className="w-full sm:w-auto bg-yellow-500 hover:bg-yellow-600 text-white px-12 py-4 rounded-2xl font-bold shadow-xl shadow-yellow-500/20 transition-all active:scale-[0.98] uppercase text-[10px] tracking-[0.2em]">
+                  Confirm Consultation
                 </button>
               </div>
             </form>

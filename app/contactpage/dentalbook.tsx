@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
+import { CheckCircle2, ShieldCheck, CreditCard, CalendarCheck } from "lucide-react";
 
 export default function DentalBooking() {
   const [formData, setFormData] = useState({
@@ -24,136 +24,149 @@ export default function DentalBooking() {
   };
 
   return (
-    <main className="min-h-screen bg-white font-sans">
+    /* pt-[88px] ensures the page content starts BELOW the fixed navbar */
+    <main className="min-h-screen bg-white font-sans pt-[88px]">
       
-      {/* Header - Responsive Padding */}
-      <header className="flex items-center justify-between px-4 md:px-12 py-4 bg-white  top-0 z-50 shadow-sm">
-        <div className="relative w-32 h-10 md:w-40 md:h-12">
-          
+      {/* NOTE: If you have a global Navbar in your layout.js, 
+         you can remove this local header. If you keep it here, 
+         ensure 'fixed' is used.
+      */}
+      <header className="flex items-center justify-between px-6 md:px-12 py-6 bg-white border-b border-slate-100 fixed top-0 left-0 w-full z-[60] h-[88px]">
+        <div className="flex flex-col">
+          <span className="text-xl font-serif font-bold text-slate-900 tracking-tighter">Aesthetiq</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-blue-600 font-bold -mt-1">Foundation</span>
         </div>
-       
+        <div className="hidden md:flex items-center gap-6 text-xs font-bold text-slate-400 uppercase tracking-widest">
+            <span>Clinical Excellence</span>
+            <div className="w-1 h-1 bg-blue-600 rounded-full"></div>
+            <span>Chennai, TN</span>
+        </div>
       </header>
 
-      {/* Main Content - Grid stacks on mobile (cols-1) */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-80px)]">
+      {/* Main Content Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-88px)]">
         
         {/* Left Side - Information Section */}
-        <div className="bg-black px-6 py-12 md:px-16 md:py-20 flex flex-col justify-center lg:rounded-r-[4rem]">
+        <div className="relative bg-slate-900 px-8 py-16 md:px-20 md:py-24 flex flex-col justify-center lg:rounded-r-[5rem] overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_0%_0%,rgba(37,99,235,0.15)_0%,transparent_50%)]" />
           
-          <div className="mb-8 md:mb-12 text-center lg:text-left">
-            <h2 className="text-yellow-500 text-xl md:text-3xl font-bold mb-2 uppercase tracking-wide">
-              All Dental Treatments
-            </h2>
-            <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
-              UNDER ONE <br className="hidden md:block" /> ROOF!
+          <div className="relative z-10 mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
+              <ShieldCheck size={14} />
+              <span>Premier Dental Care</span>
+            </div>
+            <h1 className="text-white text-4xl md:text-7xl font-serif leading-tight mb-6">
+              Specialized Care <br />
+              <span className="text-blue-400 italic">Under One Roof.</span>
             </h1>
+            <p className="text-slate-400 text-lg font-light max-w-md">
+              Access Chennai's leading dental experts and advanced clinical technology in a single location.
+            </p>
           </div>
 
-          {/* Services Pills - Flex wrap for mobile */}
-          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-4 md:p-8 mb-10 flex flex-wrap items-center justify-center lg:justify-between gap-4">
-            {["RCT", "Laser", "Extraction", "Crowns"].map((service) => (
-              <div key={service} className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-lg transition-transform hover:scale-105">
-                <div className="bg-orange-500 rounded-full p-1.5">
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                </div>
-                <span className="text-black font-bold text-sm md:text-base">{service}</span>
+          <div className="relative z-10 grid grid-cols-2 gap-4 mb-16">
+            {["RCT Specialist", "Laser Dentistry", "Oral Surgery", "Digital Crowns"].map((service) => (
+              <div key={service} className="flex items-center gap-3 bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-2xl group hover:bg-white/10 transition-all">
+                <CheckCircle2 size={18} className="text-blue-500" />
+                <span className="text-white font-medium text-sm md:text-base">{service}</span>
               </div>
             ))}
           </div>
 
-          {/* Offer Banner */}
-          <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+          <div className="relative z-10 flex flex-col sm:flex-row items-center gap-8 bg-white/5 border border-white/10 p-8 rounded-[2rem] backdrop-blur-md">
             <div className="flex-1">
-              <h3 className="text-yellow-500 text-3xl md:text-4xl font-black mb-1">NO COST EMI</h3>
-              <p className="text-gray-400 text-sm md:text-lg">Available across all Chennai clinics</p>
+              <div className="flex items-center gap-2 text-blue-400 mb-1">
+                <CreditCard size={18} />
+                <h3 className="text-sm uppercase tracking-widest font-bold">Financial Ease</h3>
+              </div>
+              <p className="text-white text-2xl font-serif">No-Cost EMI Options</p>
+              <p className="text-slate-400 text-xs mt-1">Available across all Chennai foundations</p>
             </div>
-            <div className="bg-yellow-500 text-black font-black text-xl md:text-2xl px-8 py-4 rounded-2xl transform -rotate-2 hover:rotate-0 transition-transform cursor-default">
+            <div className="bg-blue-600 text-white font-bold text-lg px-8 py-4 rounded-2xl shadow-xl shadow-blue-900/40">
               UPTO 20% OFF*
             </div>
           </div>
         </div>
 
         {/* Right Side - Form Section */}
-        <div className="bg-white px-6 py-12 md:px-12 md:py-20 flex items-center justify-center">
-          <form onSubmit={handleSubmit} className="w-full max-w-md space-y-5">
-            <div className="text-center mb-8 lg:hidden">
-                <p className="text-orange-500 font-bold tracking-widest uppercase text-sm">Appointment</p>
-                <h2 className="text-2xl font-bold">Book Your Visit Today</h2>
+        <div className="bg-white px-8 py-16 md:px-20 md:py-24 flex items-center justify-center">
+          <form onSubmit={handleSubmit} className="w-full max-w-md space-y-6">
+            <div className="mb-10 text-center lg:text-left">
+                <div className="inline-flex items-center gap-2 text-blue-600 mb-2">
+                    <CalendarCheck size={20} />
+                    <span className="font-bold uppercase tracking-widest text-xs">Direct Booking</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-serif text-slate-900">Schedule Your Visit</h2>
+                <p className="text-slate-400 text-sm mt-2">Experience the Aesthetiq difference today.</p>
             </div>
 
-            {/* Name */}
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Full Name"
-              className="w-full px-5 py-4 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 text-gray-700 text-lg transition-all"
-              required
-            />
+            <div className="space-y-4">
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Patient Full Name"
+                  className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600/10 focus:border-blue-600 text-slate-700 transition-all"
+                  required
+                />
 
-            {/* Mobile */}
-            <div className="relative group">
-              <div className="absolute left-5 top-1/2 -translate-y-1/2 flex items-center gap-2 border-r border-gray-200 pr-3">
-                <span className="text-gray-500 font-bold">+91</span>
-              </div>
-              <input
-                type="tel"
-                name="mobile"
-                value={formData.mobile}
-                onChange={handleChange}
-                placeholder="Mobile Number"
-                className="w-full pl-20 pr-5 py-4 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 text-gray-700 text-lg transition-all"
-                required
-              />
+                <div className="relative group">
+                  <div className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-400 font-bold border-r border-slate-200 pr-3">
+                    +91
+                  </div>
+                  <input
+                    type="tel"
+                    name="mobile"
+                    value={formData.mobile}
+                    onChange={handleChange}
+                    placeholder="Mobile Number"
+                    className="w-full pl-20 pr-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600/10 focus:border-blue-600 text-slate-700 transition-all"
+                    required
+                  />
+                </div>
+
+                <div className="flex gap-4">
+                  <input
+                    type="text"
+                    name="captcha"
+                    value={formData.captcha}
+                    onChange={handleChange}
+                    placeholder="Enter Captcha"
+                    className="flex-1 px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:outline-none focus:border-blue-600 text-slate-700"
+                    required
+                  />
+                  <div className="bg-slate-900 px-8 flex items-center justify-center rounded-2xl select-none">
+                    <span className="text-blue-400 font-serif font-bold text-xl tracking-tighter italic">1028</span>
+                  </div>
+                </div>
             </div>
 
-            {/* Captcha */}
-            <div className="flex gap-3">
-              <input
-                type="text"
-                name="captcha"
-                value={formData.captcha}
-                onChange={handleChange}
-                placeholder="Captcha"
-                className="flex-1 px-5 py-4 border border-gray-200 rounded-2xl focus:outline-none focus:border-orange-500 text-gray-700 text-lg"
-                required
-              />
-              <div className="bg-blue-500 px-6 flex items-center justify-center rounded-2xl select-none">
-                <span className="text-white font-mono font-bold text-2xl tracking-tighter italic">1028</span>
-              </div>
-            </div>
-
-            {/* Consent */}
-            <label className="flex items-start gap-3 p-2 cursor-pointer group">
-              <div className="relative flex items-center">
+            <label className="flex items-start gap-4 p-2 cursor-pointer group">
+              <div className="relative flex items-center mt-1">
                 <input
                     type="checkbox"
                     name="consent"
                     checked={formData.consent}
                     onChange={handleChange}
-                    className="peer appearance-none w-5 h-5 border-2 border-gray-300 rounded-md checked:bg-orange-500 checked:border-orange-500 transition-all"
+                    className="peer appearance-none w-5 h-5 border-2 border-slate-200 rounded-md checked:bg-blue-600 checked:border-blue-600 transition-all"
                     required
                 />
                 <svg className="absolute w-3 h-3 text-white opacity-0 peer-checked:opacity-100 left-1 transition-opacity pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" /></svg>
               </div>
-              <span className="text-gray-500 text-xs md:text-sm leading-snug">
-                I hereby consent to receive calls/messages from Aesthetiq and its partners and override DND settings.
+              <span className="text-slate-400 text-xs leading-relaxed">
+                I hereby consent to receive medical communications from <span className="text-slate-900 font-medium">Aesthetiq Foundation</span>.
               </span>
             </label>
 
-            {/* Submit */}
             <button
               type="submit"
-              className="w-full bg-black hover:bg-orange-600 text-white font-bold text-xl py-4 rounded-2xl transition-all active:scale-[0.98] shadow-lg shadow-orange-500/10"
+              className="w-full bg-blue-700 hover:bg-slate-900 text-white font-bold text-sm uppercase tracking-[0.2em] py-5 rounded-2xl transition-all active:scale-[0.98] shadow-xl shadow-blue-900/20"
             >
-              Book an Appointment
+              Confirm Appointment
             </button>
           </form>
         </div>
-
       </div>
     </main>
   );

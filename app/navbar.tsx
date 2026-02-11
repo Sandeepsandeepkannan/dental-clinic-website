@@ -1,118 +1,160 @@
 "use client";
-export const dynamic = "force-dynamic";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-// Ensure this path matches where you saved your AppointmentModal file
+import { usePathname } from "next/navigation";
 import AppointmentModal from "./appointmentpage";
+import { Instagram, Facebook, ArrowRight, Menu, X } from "lucide-react"; 
 
 export default function Navbar() {
-  const [isModalOpen, setIsModalOpen] = useState(false); // Controls your custom modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About us", href: "/aboutpage/aboutservices" },
+    { name: "Services", href: "/servicepage" },
+    { name: "Contact us", href: "/contactpage" },
+  ];
 
   return (
     <>
-      {/* Navbar */}
-      <nav className="bg-black text-white sticky top-0 z-50 shadow-lg font-sans">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+      <nav
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out border-b ${
+          isScrolled 
+            ? "bg-white/90 backdrop-blur-xl py-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-slate-100" 
+            : "bg-white py-5 border-slate-50 shadow-sm"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <div className="flex items-center justify-between">
             
-            {/* Logo */}
-            <Link href="/" className="flex-shrink-0 flex items-center gap-3">
-              <div className="relative w-12 h-12 sm:w-14 sm:h-14">
+            {/* --- Logo Section with Interactive Glow --- */}
+            <Link href="/" className="group flex items-center gap-4 outline-none">
+              <div className="relative w-12 h-12 transition-all duration-500 group-hover:scale-110">
+                <div className="absolute inset-0 bg-blue-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Image
                   src="/logo.png"
-                  alt="Aesthetiq Foundation Logo"
+                  alt="Aesthetiq Logo"
                   fill
-                  className="object-contain"
+                  className="object-contain rounded-2xl relative z-10 shadow-sm"
                   priority
                 />
               </div>
-              <div className="text-2xl sm:text-3xl font-bold tracking-wider hover:text-yellow-500 transition-colors">
-                Aesthetiq
-                <p className="text-xs pl-1 font-bold tracking-wide text-gray-400">
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold tracking-tighter text-slate-900 group-hover:text-blue-700 transition-colors">
+                  Aesthetiq
+                </span>
+                <span className="text-[10px] uppercase tracking-[0.4em] font-black -mt-1 text-blue-600">
                   Foundation
-                </p>
+                </span>
               </div>
             </Link>
 
-            {/* Desktop Menu */}
-            <ul className="hidden lg:flex gap-8 xl:gap-10 text-base items-center">
-              <li className="hover:text-yellow-500 transition-colors font-medium">
-                <Link href="/" className="cursor-pointer block py-2">Home</Link>
-              </li>
-              <li className="hover:text-yellow-500 transition-colors font-medium">
-                <Link href="/aboutpage/aboutservices" className="cursor-pointer block py-2">About us</Link>
-              </li>
-              <li className="hover:text-yellow-500 transition-colors font-medium">
-                <Link href="/servicepage" className="cursor-pointer block py-2">Services</Link>
-              </li>
-              <li className="hover:text-yellow-500 transition-colors font-medium">
-                <Link href="/contactpage" className="cursor-pointer block py-2">Contact us</Link>
-              </li>
-            </ul>
-
-            {/* Right Side - Desktop */}
-            <div className="hidden lg:flex items-center gap-4 xl:gap-6">
-              <button
-                onClick={() => setIsModalOpen(true)} // Opens the custom modal
-                className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2.5 font-bold rounded-md transition-all active:scale-95 shadow-md"
-              >
-                Book Appointment
-              </button>
-
-              <div className="flex gap-4 text-xl">
-                <a href="#" className="hover:text-yellow-500 transition-colors"><i className="fa-brands fa-facebook"></i></a>
-                <a href="#" className="hover:text-yellow-500 transition-colors"><i className="fa-brands fa-instagram"></i></a>
-              </div>
+            {/* --- Desktop Navigation (Permanent Floating Pill Style) --- */}
+            <div className="hidden lg:flex items-center px-2 py-1 rounded-full border border-slate-100 bg-slate-50/50 backdrop-blur-sm shadow-inner">
+              <ul className="flex items-center gap-1">
+                {navLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className={`relative px-6 py-2.5 text-[11px] uppercase tracking-widest font-black transition-all duration-300 rounded-full flex items-center group overflow-hidden ${
+                        pathname === link.href 
+                          ? "text-blue-700 bg-white shadow-sm"
+                          : "text-slate-500 hover:text-slate-900"
+                      }`}
+                    >
+                      <span className="relative z-10">{link.name}</span>
+                      <span className="absolute inset-0 bg-blue-600/5 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* --- Actions Section --- */}
+            <div className="hidden lg:flex items-center gap-8">
+              <div className="flex gap-4">
+                <a href="#" className="text-slate-400 hover:text-blue-600 transition-all hover:scale-125">
+                  <Facebook size={18} />
+                </a>
+                <a href="#" className="text-slate-400 hover:text-blue-600 transition-all hover:scale-125">
+                  <Instagram size={18} />
+                </a>
+              </div>
+
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="group relative px-8 py-3 bg-blue-700 text-white font-black text-[10px] uppercase tracking-[0.2em] rounded-full overflow-hidden transition-all hover:shadow-[0_10px_25px_rgba(30,64,175,0.3)] active:scale-95"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-indigo-700 group-hover:scale-105 transition-transform" />
+                <span className="relative z-10 flex items-center gap-2">
+                  Book Visit <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </span>
+              </button>
+            </div>
+
+            {/* --- Mobile Toggle --- */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-white hover:text-yellow-500 focus:outline-none transition-colors"
+              className="lg:hidden p-2 text-slate-900 transition-colors hover:bg-slate-50 rounded-lg"
             >
-              {!mobileMenuOpen ? (
-                <svg className="block h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              ) : (
-                <svg className="block h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              )}
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu Drawer */}
-        <div className={`lg:hidden transition-all duration-300 ${mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-          <div className="px-4 pt-2 pb-6 space-y-2 bg-gray-900 border-t border-gray-800">
-            <Link href="/" className="block px-3 py-3 rounded-md text-base font-medium hover:text-yellow-500" onClick={() => setMobileMenuOpen(false)}>Home</Link>
-            <Link href="/aboutpage/aboutservices" className="block px-3 py-3 rounded-md text-base font-medium hover:text-yellow-500" onClick={() => setMobileMenuOpen(false)}>About us</Link>
-            <Link href="/servicepage" className="block px-3 py-3 rounded-md text-base font-medium hover:text-yellow-500" onClick={() => setMobileMenuOpen(false)}>Services</Link>
-            <Link href="/contactpage" className="block px-3 py-3 rounded-md text-base font-medium hover:text-yellow-500" onClick={() => setMobileMenuOpen(false)}>Contact us</Link>
-            
-            <button
-              onClick={() => {
-                setIsModalOpen(true);
-                setMobileMenuOpen(false);
-              }}
-              className="w-full text-center block px-3 py-4 rounded-md text-base font-bold bg-yellow-500 text-black hover:bg-yellow-600 transition-colors mt-4"
-            >
-              Book Appointment
-            </button>
-          </div>
+        {/* --- Mobile Drawer (Always Ready Glassmorphism) --- */}
+        <div 
+          className={`lg:hidden absolute top-0 left-0 w-full h-screen bg-white/98 backdrop-blur-2xl transition-all duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] ${
+            mobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+          }`}
+        >
+            <div className="flex flex-col h-full justify-center px-10 space-y-8">
+                <div className="flex justify-between items-center mb-8">
+                  <p className="text-blue-600 text-[10px] font-black uppercase tracking-[0.5em]">Menu</p>
+                  <button onClick={() => setMobileMenuOpen(false)} className="p-2 bg-slate-100 rounded-full"><X size={20}/></button>
+                </div>
+                {navLinks.map((link, i) => (
+                    <Link
+                        key={link.name}
+                        href={link.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`text-5xl font-serif transition-all duration-500 hover:text-blue-600 ${
+                            pathname === link.href ? "text-blue-700 translate-x-4 font-bold" : "text-slate-900"
+                        }`}
+                        style={{ transitionDelay: `${i * 70}ms` }}
+                    >
+                        {link.name}
+                    </Link>
+                ))}
+                
+                <div className="pt-10 flex flex-col gap-6">
+                    <button
+                        onClick={() => { setIsModalOpen(true); setMobileMenuOpen(false); }}
+                        className="w-full bg-blue-700 text-white py-6 rounded-2xl font-black uppercase tracking-widest text-xs shadow-xl shadow-blue-900/20"
+                    >
+                        Schedule Appointment
+                    </button>
+                    <div className="flex justify-center gap-10 text-slate-400">
+                        <Facebook size={24} className="hover:text-blue-600" />
+                        <Instagram size={24} className="hover:text-blue-600" />
+                    </div>
+                </div>
+            </div>
         </div>
       </nav>
 
-      {/* YOUR BEAUTIFUL APPOINTMENT MODAL 
-          Passing the state props to your custom component
-      */}
-      <AppointmentModal 
-        open={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
+      <AppointmentModal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

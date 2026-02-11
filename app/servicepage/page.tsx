@@ -13,8 +13,6 @@ export default function Page(){
  
   <HairServicesSection/>
   
-     <SkinServicesSection/>
-  
      <Footernew/>
   </div>
 }

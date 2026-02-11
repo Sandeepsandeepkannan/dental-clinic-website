@@ -13,8 +13,8 @@ export default function App() {
    const [isModalOpen, setIsModalOpen] = useState(false); // Default to true so it shows on load
   return ( <div>
            <Home/>
-          {/* <AppointmentModal  open={isModalOpen} 
-          onClose={() => setIsModalOpen(true)}/> */}
+          <AppointmentModal  open={isModalOpen} 
+          onClose={() => setIsModalOpen(true)}/>
           <ExpertiseSection/>
             <DentalInfoSectionpage/>
            <PrivilegeServices/> 

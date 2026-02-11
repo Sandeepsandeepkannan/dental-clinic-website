@@ -2,91 +2,105 @@
 export const dynamic = "force-dynamic"; 
 import React, { useState } from "react";
 import Image from "next/image";
-// Ensure this path matches your file structure
+import { Star, CheckCircle2, ArrowRight } from "lucide-react"; // Refined icons
 import AppointmentModal from "@/app/appointmentpage";
 
 export default function WhyChooseUs() {
-  // 1. Initialize modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const features = [
+    "Expert Team of Medical Professionals",
+    "Personalized Clinical Treatment Plans",
+    "Comprehensive Range of Aesthetic Services"
+  ];
+
   return (
-    <main className="min-h-screen bg-white">
+    // Background: Slate-50 (Very light gray) for a clean, clinical feel
+    <section className="bg-slate-50 py-24 md:py-32 px-6 overflow-hidden">
       
-      {/* 2. Add the Modal Component */}
       <AppointmentModal 
         open={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
       />
 
-      {/* Why Choose Us Section */}
-      <section className="max-w-7xl mx-auto px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
-          {/* Left side - Image */}
-          <div className="relative">
-            <div className="relative h-[600px] rounded-[3rem] overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800"
-                alt="Nail Care Service"
-                className="w-full h-full object-cover"
-              />
+          {/* Left side - Interactive Image with Floating Badge */}
+          <div className="relative animate-in fade-in slide-in-from-left-10 duration-1000">
+            {/* Soft Blue Glow Background */}
+            <div className="absolute -top-10 -left-10 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl" />
+            
+            <div className="relative group">
+              <div className="relative h-[500px] md:h-[650px] rounded-[3rem] overflow-hidden shadow-2xl border-[12px] border-white transition-transform duration-500 group-hover:scale-[1.02]">
+                <img
+                  src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800"
+                  alt="Aesthetiq Foundation Service"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* Floating Stat Badge: Royal Blue */}
+              <div className="absolute -bottom-8 -right-4 md:right-12 bg-blue-700 text-white p-8 rounded-3xl shadow-2xl">
+                <div className="text-center">
+                  <p className="text-3xl font-serif mb-1">99%</p>
+                  <p className="text-[10px] uppercase tracking-widest font-bold opacity-80">
+                    Patient <br /> Satisfaction
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Right side - Content */}
-          <div className="flex flex-col">
+          <div className="flex flex-col space-y-8 animate-in fade-in slide-in-from-right-10 duration-1000 delay-200">
             
-            {/* Header with Icon */}
-            <div className="flex items-center gap-2 mb-6">
-              <svg
-                className="w-6 h-6 text-yellow-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <span className="text-sm uppercase tracking-wider text-gray-600 font-sans">
+            {/* Header with Icon: Royal Blue */}
+            <div className="flex items-center gap-3">
+              <Star className="w-5 h-5 text-blue-600 fill-blue-600" />
+              <span className="text-xs uppercase tracking-[0.3em] text-blue-700 font-bold">
                 Why Choose Us
               </span>
             </div>
 
-            {/* Main Heading */}
-            <h2 className="text-5xl lg:text-6xl font-serif mb-12 leading-tight text-black">
-              Why Aesthetiq Foundation is Your Trusted Choice for Personalized Beauty
+            {/* Main Heading: Slate-900 for Elegance */}
+            <h2 className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">
+              Your Trusted Choice for <br />
+              <span className="text-blue-700 italic">Personalized</span> Beauty
             </h2>
 
-            {/* Features List */}
-            <div className="space-y-6 mb-12">
-              {["Expert Team of Professionals", "Personalized Treatment Plans", "Comprehensive Range of Services"].map((text) => (
-                <div key={text} className="flex items-start gap-3">
-                  <svg
-                    className="w-6 h-6 text-teal-500 flex-shrink-0 mt-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-gray-800 text-lg font-serif">
+            {/* Features List with Royal Blue Accents */}
+            <div className="space-y-6 pt-4">
+              {features.map((text, idx) => (
+                <div 
+                  key={text} 
+                  className="flex items-center gap-4 group"
+                  style={{ animationDelay: `${idx * 150}ms` }}
+                >
+                  <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-700 group-hover:bg-blue-700 group-hover:text-white transition-colors duration-300">
+                    <CheckCircle2 size={20} />
+                  </div>
+                  <span className="text-slate-700 text-lg font-medium tracking-tight">
                     {text}
                   </span>
                 </div>
               ))}
             </div>
 
-            {/* CTA Button - 3. Attach click handler */}
-            <div>
+            {/* CTA Button: Royal Blue with Hover Animation */}
+            <div className="pt-6">
               <button 
                 onClick={() => setIsModalOpen(true)}
-                className="bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-4 rounded-lg font-bold text-lg transition-all transform active:scale-95 shadow-lg"
+                className="group relative flex items-center gap-4 bg-blue-700 hover:bg-slate-900 text-white px-10 py-5 rounded-2xl font-bold transition-all shadow-xl shadow-blue-900/20 active:scale-95 uppercase text-xs tracking-[0.2em]"
               >
-                Book a Consultation Now!
+                <span>Book a Consultation Now</span>
+                <ArrowRight size={18} className="transition-transform group-hover:translate-x-2" />
               </button>
             </div>
 
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }
