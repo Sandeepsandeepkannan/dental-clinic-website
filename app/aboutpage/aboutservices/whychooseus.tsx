@@ -34,7 +34,7 @@ export default function WhyChooseUs() {
             <div className="relative group">
               <div className="relative h-[500px] md:h-[650px] rounded-[3rem] overflow-hidden shadow-2xl border-[12px] border-white transition-transform duration-500 group-hover:scale-[1.02]">
                 <img
-                  src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800"
+                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80"
                   alt="Aesthetiq Foundation Service"
                   className="w-full h-full object-cover"
                 />

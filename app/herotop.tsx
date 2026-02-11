@@ -1,12 +1,26 @@
 "use client";
 export const dynamic = "force-dynamic";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AppointmentModal from "./appointmentpage";
 import Link from "next/link";
 import { Sparkles, ArrowRight } from "lucide-react";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const images = [
+    "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1920&q=80",
+    "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80",
+    "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1920&q=80",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <main className="min-h-screen bg-white font-sans overflow-hidden">
@@ -19,12 +33,27 @@ export default function Home() {
       {/* Hero Section: Using the White, Blue, and Gray Palette */}
       <section className="relative h-screen w-full overflow-hidden flex items-center bg-slate-950">
         
-        {/* Animated Gradient Background 
-            Colors: Slate-950 (Deep Gray) and Blue-900 (Deep Blue) 
-        */}
+        {/* Background Image Slideshow */}
         <div className="absolute inset-0 z-0">
+          {images.map((img, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentImage ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+                backgroundImage: `linear-gradient(to right, rgba(15,23,42,0.95), rgba(15,23,42,0.7)), url(${img})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Animated Gradient Overlay */}
+        <div className="absolute inset-0 z-10">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(30,64,175,0.15)_0%,transparent_50%)] animate-pulse duration-[10s]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(15,23,42,1)_0%,transparent_70%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(15,23,42,0.3)_0%,transparent_70%)]" />
         </div>
 
         {/* Content Container */}
@@ -85,6 +114,19 @@ export default function Home() {
             <span className="text-white font-serif text-xl leading-none"></span>
             <span className="text-[10px] uppercase tracking-widest font-bold mt-1"></span>
           </div>
+        </div>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentImage(i)}
+              className={`h-1 transition-all duration-300 ${
+                currentImage === i ? "w-8 bg-blue-500" : "w-4 bg-white/30"
+              }`}
+            />
+          ))}
         </div>
 
       </section>

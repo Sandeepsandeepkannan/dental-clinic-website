@@ -2,30 +2,30 @@
 import React from "react";
 import { ChevronRight, Sparkles, ShieldCheck } from "lucide-react";
 
-export default function HairServicesSection() {
+export default function DentalServicesSection() {
   const services = [
     {
-      title: "Light Therapy",
-      desc: "We provide advanced Light Therapy, utilizing low-level laser light technology to naturally enhance hair follicle growth.",
-      img: "https://kimayaclinique.com/image/Group%2031752.webp",
+      title: "Invisalign®",
+      desc: "Achieve a perfect smile with clear, removable aligners. We provide digitally guided smile correction for maximum comfort and precision.",
+      img: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800",
       delay: "0ms",
     },
     {
-      title: "Tricell",
-      desc: "A highly popular choice combining PRP and specialized growth factors to offer a more comprehensive restoration solution.",
-      img: "https://kimayaclinique.com/images/Group%2031753.webp",
+      title: "Dental Implants",
+      desc: "Permanent and natural-looking solutions for missing teeth using advanced titanium posts and custom-crafted porcelain crowns.",
+      img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800",
       delay: "100ms",
     },
     {
-      title: "GFC",
-      desc: "Growth Factor Concentrate (GFC) is a non-surgical option that harnesses concentrated growth factors for superior results.",
-      img: "https://kimayaclinique.com/images/Group%2031754.webp",
+      title: "Root Canal (RCT)",
+      desc: "Pain-free advanced endodontic therapy to save your natural teeth using laser-assisted precision and microscopic technology.",
+      img: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=800",
       delay: "200ms",
     },
     {
-      title: "PRP Therapy",
-      desc: "Platelet-Rich Plasma therapy helps stimulate natural hair growth using your own platelets for a safe, organic treatment.",
-      img: "https://kimayaclinique.com/images/Group%2031754.webp",
+      title: "Smile Makeover",
+      desc: "A comprehensive cosmetic transformation combining veneers, whitening, and contouring to create your ideal aesthetic smile.",
+      img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
       delay: "300ms",
     },
   ];
@@ -41,11 +41,11 @@ export default function HairServicesSection() {
             {/* Accent: Royal Blue for the subtitle */}
             <div className="flex items-center gap-2 text-blue-700 font-bold tracking-[0.2em] text-xs uppercase">
               <Sparkles size={16} />
-              <span>Restoration Experts</span>
+              <span>Oral Care Experts</span>
             </div>
             {/* Title: Slate-900 with Royal Blue accent */}
             <h2 className="text-4xl md:text-6xl font-serif text-slate-900">
-              Hair <span className="text-blue-700 italic">Specialties</span>
+              Dental <span className="text-blue-700 italic">Specialties</span>
             </h2>
             <div className="w-24 h-1 bg-blue-700 rounded-full"></div>
           </div>
@@ -109,7 +109,7 @@ export default function HairServicesSection() {
         {/* Results Summary in Steel Gray */}
         <div className="mt-20 text-center animate-in fade-in duration-1000 delay-500">
           <p className="text-slate-400 text-sm font-light">
-            Our specialized team in <span className="text-slate-900 font-medium">Chennai</span> utilizes clinical excellence to ensure high-density hair restoration.
+            Our specialized team in <span className="text-slate-900 font-medium">Chennai</span> utilizes clinical excellence to ensure high-precision dental restoration.
           </p>
         </div>
 

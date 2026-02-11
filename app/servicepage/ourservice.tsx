@@ -38,9 +38,7 @@ export default function OurServicesHero() {
         {/* Top Accent Line: Royal Blue */}
         <div className="flex items-center justify-center gap-4 mb-8 animate-in fade-in slide-in-from-top-4 duration-1000">
           <div className="w-8 md:w-16 h-px bg-blue-500/30" />
-          <p className="text-blue-400 uppercase tracking-[0.5em] text-[10px] md:text-xs font-black">
-            Clinical Excellence
-          </p>
+         
           <div className="w-8 md:w-16 h-px bg-blue-500/30" />
         </div>
 

@@ -41,7 +41,7 @@ export default function ExpertiseSection() {
             {/* Top Left - Facial */}
             <div className="group relative h-[300px] rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-white">
               <img
-                src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500"
+                src="https://kimayaclinique.com/image/priv-4.png"
                 alt="Dermatology"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
@@ -53,7 +53,7 @@ export default function ExpertiseSection() {
             {/* Top Right - Nail/Skin */}
             <div className="group relative h-[300px] mt-12 rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-white">
               <img
-                src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS40cja1HXKFO9IXA6bVCRIV2rpjo1LJD_0fCimtaVv0N6yabBQGmTL9Xk&s"
                 alt="Esthetics"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
