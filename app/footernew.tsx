@@ -94,13 +94,7 @@ export default function Footernew() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-yellow-500 text-white py-4">
-        <div className="max-w-7xl mx-auto px-8">
-          <p className="text-center  font-medium">
-            © 2024-2027, All Rights Reserved
-          </p>
-        </div>
-      </div>
+      
 
       {/* Social Media Icons - Fixed Right */}
       

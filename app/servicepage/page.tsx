@@ -1,6 +1,5 @@
-import Footer from "../Bottombar";
+
 import Footernew from "../footernew";
-import OurServices from "./aboutmetop";
 import DentalTreatments from "./dentaltreatment";
 import HairServicesSection from "./hairservice";
 import OurServicesHero from "./ourservice";

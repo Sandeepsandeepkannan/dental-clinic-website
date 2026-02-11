@@ -1,119 +1,145 @@
 "use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { useState } from "react";
+
+// Simple counter hook for the professional "growing numbers" effect
+const useCounter = (end: number, duration: number = 2000) => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    let start = 0;
+    const increment = end / (duration / 16);
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+    return () => clearInterval(timer);
+  }, [end, duration]);
+  return count;
+};
 
 export default function ExpertiseSection() {
+  const satisfiedClients = useCounter(10000);
+  const reviews = useCounter(1000);
+  const sessions = useCounter(1800);
+
   return (
-    <main className="min-h-screen bg-white font-sans">
-      {/* Expertise Section */}
-      <section className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left side - Images Grid */}
-          <div className="grid grid-cols-2 gap-4">
-            {/* Top Left Image - Facial Treatment */}
-            <div className="relative h-[280px] rounded-3xl overflow-hidden">
+    <section className="bg-slate-50 py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Left side - Interactive Image Mosaic */}
+          <div className="grid grid-cols-2 gap-6 relative">
+            {/* Background Decorative Element */}
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-yellow-500/10 rounded-full blur-3xl" />
+
+            {/* Top Left - Facial */}
+            <div className="group relative h-[300px] rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500"
-                alt="Facial Treatment"
-                className="w-full h-full object-cover"
+                alt="Dermatology"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                <span className="text-white font-medium">Advanced Dermatology</span>
+              </div>
             </div>
 
-            {/* Top Right Image - Nail Care */}
-            <div className="relative h-[280px] rounded-3xl overflow-hidden">
+            {/* Top Right - Nail/Skin */}
+            <div className="group relative h-[300px] mt-12 rounded-[2rem] overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500"
-                alt="Nail Care"
-                className="w-full h-full object-cover"
+                alt="Esthetics"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                <span className="text-white font-medium">Luxury Esthetics</span>
+              </div>
             </div>
 
-            {/* Bottom Image - Dental Care (Spans 2 columns) */}
-            <div className="col-span-2 relative h-[340px] rounded-3xl overflow-hidden">
+            {/* Bottom Wide - Dental */}
+            <div className="group col-span-2 relative h-[380px] rounded-[2.5rem] overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800"
                 alt="Dental Care"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                <div>
+                  <p className="text-yellow-500 text-xs uppercase tracking-widest mb-1 font-bold">Featured Service</p>
+                  <h4 className="text-white text-2xl font-serif">Comprehensive Dental Care</h4>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right side - Content */}
-          <div className="flex flex-col justify-between">
-            {/* Header Section */}
+          {/* Right side - Content & Live Stats */}
+          <div className="flex flex-col space-y-10">
             <div>
-              <div className="flex items-center gap-2 mb-6">
-                <svg
-                  className="w-6 h-6 text-yellow-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <span className="text-sm uppercase tracking-wider text-gray-600 font-sans">
-                  Professionalism
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-[1px] bg-yellow-500" />
+                <span className="text-xs uppercase tracking-[0.3em] text-yellow-600 font-bold">
+                  Clinical Excellence
                 </span>
               </div>
 
-              <h2 className="text-5xl lg:text-6xl font-serif mb-6 leading-tight text-black">
-                Our Expertise
-                <br />
-                Proficiency in Aesthetics
+              <h2 className="text-5xl lg:text-7xl font-serif mb-8 leading-[1.1] text-slate-900">
+                Precision in <br /> 
+                <span className="text-yellow-600 italic">Aesthetics.</span>
               </h2>
 
-              <p className="text-gray-600 text-lg mb-12 font-sans">
-                Explore our range of specialized treatments, designed to help you
-                look and feel your best.
+              <p className="text-slate-600 text-lg leading-relaxed max-w-lg font-light">
+                Our foundation is built on the intersection of medical science and artistic beauty. 
+                We provide meticulously crafted treatments that honor your natural features.
               </p>
             </div>
 
-            {/* Stats Section */}
-            <div className="bg-black rounded-3xl p-12">
-              <div className="grid grid-cols-2 gap-8 mb-8">
-                {/* Satisfied Clients */}
-                <div>
-                  <div className="text-5xl font-serif text-yellow-500 mb-2">
-                    10000+
-                  </div>
-                  <div className="text-white text-sm uppercase tracking-wider font-sans">
-                    Satisfied Clients
-                  </div>
+            {/* Premium Stats Card */}
+            <div className="bg-slate-900 rounded-[3rem] p-10 lg:p-14 shadow-2xl relative overflow-hidden group">
+              {/* Background Glow */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 blur-3xl group-hover:bg-yellow-500/20 transition-colors" />
+              
+              <div className="grid grid-cols-2 gap-12 relative z-10">
+                <div className="space-y-2">
+                  <h3 className="text-5xl font-serif text-yellow-500">
+                    {satisfiedClients.toLocaleString()}<span className="text-2xl ml-1">+</span>
+                  </h3>
+                  <p className="text-slate-400 text-xs uppercase tracking-widest font-bold">
+                    Global Clients
+                  </p>
                 </div>
 
-                {/* Positive Reviews */}
-                <div>
-                  <div className="text-5xl font-serif text-yellow-500 mb-2">
-                    1000+
-                  </div>
-                  <div className="text-white text-sm uppercase tracking-wider font-sans">
-                    Positive Reviews
-                  </div>
+                <div className="space-y-2">
+                  <h3 className="text-5xl font-serif text-yellow-500">
+                    {reviews.toLocaleString()}<span className="text-2xl ml-1">+</span>
+                  </h3>
+                  <p className="text-slate-400 text-xs uppercase tracking-widest font-bold">
+                    Five-Star Reviews
+                  </p>
+                </div>
+
+                <div className="col-span-2 pt-8 border-t border-slate-800 space-y-2">
+                  <h3 className="text-5xl font-serif text-yellow-500">
+                    {sessions.toLocaleString()}<span className="text-2xl ml-1">+</span>
+                  </h3>
+                  <p className="text-slate-400 text-xs uppercase tracking-widest font-bold">
+                    Successful Therapy Sessions
+                  </p>
                 </div>
               </div>
-
-              {/* Divider */}
-              <div className="border-t border-yellow-600 mb-8"></div>
-
-              {/* Therapy Sessions */}
-              <div>
-                <div className="text-5xl font-serif text-yellow-500 mb-2">
-                  1800+
-                </div>
-                <div className="text-white text-sm uppercase tracking-wider font-sans">
-                  Therapy Sessions
-                </div>
-              </div>
+              
+              <button className="mt-10 w-full py-4 border border-yellow-500/30 text-yellow-500 rounded-2xl hover:bg-yellow-500 hover:text-black transition-all font-bold tracking-widest text-xs uppercase">
+                View Clinical Results
+              </button>
             </div>
           </div>
-        </div>
 
-        {/* Chat Widget */}
-        <div className="fixed bottom-8 right-8 bg-white rounded-2xl shadow-2xl px-6 py-4 border border-gray-100">
-          <p className="text-gray-800 font-medium font-sans">
-            Hi! Welcome to <span className="italic font-serif">Clinique!</span>
-          </p>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }

@@ -1,56 +1,98 @@
+"use client";
+import React from "react";
+import { Award, ShieldCheck, Activity, Users } from "lucide-react";
+
 export default function Dental() {
   return (
-    <section className="bg-white py-32 px-6 text-center">
-
-      {/* Our Dental Hospital */}
-      <div className="max-w-5xl mx-auto mb-32">
+    <section className="bg-slate-50 py-24 md:py-32 px-6 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* --- About Hospital Section --- */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-32 items-center">
           
+          {/* Left: Animated Branding Block */}
+          <div className="lg:col-span-5 space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-xs font-bold uppercase tracking-widest">
+              <Award size={14} />
+              <span>Best in Chennai</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-6xl font-serif text-slate-900 leading-tight">
+              About <span className="text-yellow-600 italic">Sculpt</span> <br /> 
+              Dental Hospital
+            </h2>
+            
+            <p className="text-slate-500 text-lg font-light leading-relaxed">
+              Redefining dental excellence in Anna Nagar through digital precision and compassionate patient care.
+            </p>
+            
+            <div className="grid grid-cols-2 gap-4 pt-4">
+              <div className="p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
+                <p className="text-2xl font-serif text-slate-900">Digital</p>
+                <p className="text-xs text-yellow-600 font-bold uppercase">Guided Care</p>
+              </div>
+              <div className="p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
+                <p className="text-2xl font-serif text-slate-900">Invisalign</p>
+                <p className="text-xs text-yellow-600 font-bold uppercase">Platinum Center</p>
+              </div>
+            </div>
+          </div>
 
-          <h2 className="text-4xl md:text-5xl font-semibold text-slate-800 mb-8">
-          About Us
-        </h2>
-       
+          {/* Right: Interactive Text Card */}
+          <div className="lg:col-span-7 animate-in fade-in slide-in-from-right-8 duration-1000 delay-200">
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-[3rem] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+              <div className="relative bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-slate-100">
+                <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light first-letter:text-5xl first-letter:font-serif first-letter:text-yellow-600 first-letter:mr-3 first-letter:float-left">
+                  SCULPT Dental Hospital, led by renowned orthodontist <span className="text-slate-900 font-medium">Dr. Sanjay Sundararajan</span>, is a premier center for Braces & Invisalign in Anna Nagar. We offer personalized, digitally guided smile corrections with a primary focus on aesthetics, comfort, and precision.
+                </p>
+                <p className="mt-6 text-slate-600 leading-relaxed font-light">
+                  Our clinic specializes in a comprehensive range of treatments including pediatric dentistry, laser gum care, smile makeovers, dental implants, and full-mouth rehabilitation. We blend clinical excellence with compassionate care to ensure a superior patient experience.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <p className="text-lg text-slate-600 leading-relaxed">
+        {/* --- Experts Section --- */}
+        <div className="space-y-16">
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl md:text-5xl font-serif text-slate-900">
+              Meet Our <span className="font-bold">Dental Experts</span>
+            </h2>
+            <div className="w-24 h-1 bg-yellow-500 mx-auto rounded-full" />
+          </div>
 
-          SCULPT Dental Hospital, located in Chennai, with Leading Dentist In
-          Anna Nagar, is the Best Dental Hospital in Chennai with exclusive
-          Braces & Invisalign center. Led by renowned orthodontist Dr. Sanjay
-          Sundararajan, SCULPT offers personalized, digitally guided smile
-          correction with a focus on aesthetics, comfort and precision. The
-          clinic specializes in Invisalign, braces (metal & ceramic),
-          pediatric dentistry, laser gum care, smile makeovers, dental
-          implants, extractions and full-mouth rehabilitation blending
-          clinical excellence with compassionate care. SCULPT Dental Hospital
-          in Anna Nagar, Chennai, is a leading center for Braces & Invisalign.
-          Led by Dr. Sanjay Sundararajan, it offers advanced, digitally guided
-          smile correction and specializes in Invisalign, braces, implants
-          and smile makeovers all with a focus on comfort and care.
-
-        </p>
-
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: "Orthodontists", icon: <Activity />, desc: "Leading specialists in Invisalign and digital smile design." },
+              { title: "Implantologists", icon: <ShieldCheck />, desc: "Experts in permanent dental restoration and implants." },
+              { title: "Endodontists", icon: <Users />, desc: "Specialized in advanced root canal and restorative therapy." },
+              { title: "Oral Surgeons", icon: <Award />, desc: "Precision-focused surgical care and rehabilitation." }
+            ].map((item, idx) => (
+              <div 
+                key={idx} 
+                className="group p-8 bg-white rounded-3xl border border-slate-100 shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-yellow-200"
+              >
+                <div className="w-12 h-12 bg-slate-900 rounded-xl flex items-center justify-center text-yellow-500 mb-6 group-hover:bg-yellow-500 group-hover:text-black transition-colors duration-300">
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 mb-3 tracking-tight">{item.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="bg-slate-900 rounded-[2rem] p-8 md:p-12 text-center relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-500/10 blur-[100px] rounded-full" />
+            <p className="relative z-10 text-white text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed italic">
+              "Our dentists are skilled at performing a wide range of procedures, dedicating their specialized skills as periodontists and surgeons to the betterment of our patients."
+            </p>
+          </div>
+        </div>
       </div>
-
-
-      {/* Our Dental Experts */}
-      <div className="max-w-4xl mx-auto">
-
-        <h2 className="text-4xl md:text-5xl font-semibold text-slate-800 mb-8">
-          Our <span className="font-bold">Dental Experts</span>
-        </h2>
-
-        <p className="text-lg text-slate-600 leading-relaxed">
-
-          Our dentists are skilled at performing a wide range of dental
-          procedures. For undertaking the treatments, we have the best
-          dentists in Chennai, including endodontists, orthodontists,
-          implantologists, oral surgeons, and periodontists, who dedicate
-          their skills to the betterment of the patients.
-
-        </p>
-
-      </div>
-
     </section>
   );
 }
