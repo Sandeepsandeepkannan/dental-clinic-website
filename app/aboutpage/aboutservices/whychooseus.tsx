@@ -1,16 +1,30 @@
 "use client";
+export const dynamic = "force-dynamic"; 
+import React, { useState } from "react";
 import Image from "next/image";
+// Ensure this path matches your file structure
+import AppointmentModal from "@/app/appointmentpage";
 
 export default function WhyChooseUs() {
+  // 1. Initialize modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <main className="min-h-screen bg-white">
+      
+      {/* 2. Add the Modal Component */}
+      <AppointmentModal 
+        open={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+
       {/* Why Choose Us Section */}
       <section className="max-w-7xl mx-auto px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left side - Image */}
           <div className="relative">
-            <div className="relative h-[600px] rounded-[3rem] overflow-hidden">
+            <div className="relative h-[600px] rounded-[3rem] overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800"
                 alt="Nail Care Service"
@@ -43,95 +57,36 @@ export default function WhyChooseUs() {
 
             {/* Features List */}
             <div className="space-y-6 mb-12">
-              
-              {/* Feature 1 */}
-              <div className="flex items-start gap-3">
-                <svg
-                  className="w-6 h-6 text-teal-500 flex-shrink-0 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <span className="text-gray-800 text-lg font-serif">
-                  Expert Team of Professionals
-                </span>
-              </div>
-
-              {/* Feature 2 */}
-              <div className="flex items-start gap-3">
-                <svg
-                  className="w-6 h-6 text-teal-500 flex-shrink-0 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <span className="text-gray-800 text-lg font-serif">
-                  Personalized Treatment Plans
-                </span>
-              </div>
-
-              {/* Feature 3 */}
-              <div className="flex items-start gap-3">
-                <svg
-                  className="w-6 h-6 text-teal-500 flex-shrink-0 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <span className="text-gray-800 text-lg font-serif">
-                  Comprehensive Range of Services
-                </span>
-              </div>
-
+              {["Expert Team of Professionals", "Personalized Treatment Plans", "Comprehensive Range of Services"].map((text) => (
+                <div key={text} className="flex items-start gap-3">
+                  <svg
+                    className="w-6 h-6 text-teal-500 flex-shrink-0 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-800 text-lg font-serif">
+                    {text}
+                  </span>
+                </div>
+              ))}
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Button - 3. Attach click handler */}
             <div>
-              <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-4 rounded-lg font-bold text-lg transition-all transform active:scale-95 shadow-lg"
+              >
                 Book a Consultation Now!
               </button>
             </div>
 
           </div>
-
         </div>
       </section>
-
-      {/* Chat Widget */}
-      <div className="fixed bottom-8 right-8 bg-white rounded-2xl shadow-2xl px-6 py-4 border border-gray-100">
-        <p className="text-gray-800 font-medium font-sans">
-          Hi! Welcome to <span className="italic font-serif font-bold">Aesthetiq Clinique!</span>
-        </p>
-      </div>
-
-      {/* Logo/Icon in bottom right corner */}
-      <div className="fixed bottom-4 right-4 w-16 h-16">
-        <div className="bg-yellow-500 rounded-full w-full h-full flex items-center justify-center text-white font-bold text-2xl">
-          K
-        </div>
-      </div>
-
     </main>
   );
 }

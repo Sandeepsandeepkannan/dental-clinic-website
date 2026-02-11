@@ -1,5 +1,10 @@
 "use client";
+
+export const dynamic = "force-dynamic";
 import React, { useState, useEffect } from "react";
+// Import your modal component - ensure the path is correct
+import AppointmentModal from "./appointmentpage";
+import Link from "next/link";
 
 export default function Home() {
   const images = [
@@ -8,21 +13,30 @@ export default function Home() {
     "https://kimayaclinique.com/image/ban-4.webp",
   ];
 
+  // 1. MODAL STATE
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 4000); // Increased to 4s for better readability
+    }, 4000);
     return () => clearInterval(interval);
   }, [images.length]);
 
   return (
     <main className="min-h-screen bg-white font-sans">
+      
+      {/* 2. THE MODAL COMPONENT */}
+      <AppointmentModal 
+        open={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+
       {/* Hero Section */}
       <section className="relative h-[100vh] lg:h-[90vh] w-full overflow-hidden flex items-center">
         
-        {/* Background Image Layers with Fade Effect */}
+        {/* Background Images */}
         {images.map((img, index) => (
           <div
             key={index}
@@ -55,22 +69,20 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-10 py-4 font-bold transition-all transform hover:scale-105 shadow-xl">
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-yellow-500 hover:bg-yellow-600 text-black px-10 py-4 font-bold transition-all transform hover:scale-105 shadow-xl"
+              >
                 BOOK APPOINTMENT
               </button>
-              <button className="border-2 border-white hover:bg-white hover:text-black text-white px-10 py-4 font-bold transition-all">
-                OUR SERVICES
-              </button>
+              
+              <Link href="/servicepage">
+                <button className="border-2 border-white hover:bg-white hover:text-black text-white px-10 py-4 font-bold transition-all w-full sm:w-auto">
+                  OUR SERVICES
+                </button>
+              </Link>
             </div>
           </div>
-        </div>
-
-        {/* Floating Chat Box (Hidden on small mobile, visible on md+) */}
-        <div className="absolute bottom-8 right-6 md:right-12 z-20 hidden xs:flex items-center gap-3 bg-white text-black px-4 py-3 rounded-2xl shadow-2xl animate-bounce">
-          <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-          <p className="text-sm font-medium">
-            Hi! Welcome to <b>Aesthetiq!</b>
-          </p>
         </div>
 
         {/* Slide Indicators */}

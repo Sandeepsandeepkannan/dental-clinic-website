@@ -1,12 +1,12 @@
-import Footer from "@/app/Bottombar";
-import OurServices from "../../servicepage/aboutmetop";
+"use client";       
+export const dynamic = "force-dynamic";
+ 
 import Dentalinabout from "./mission";
-
-import DentalInfoSectionpage from "@/app/Dentalinfosection";
 import WhyChooseUs from "./whychooseus";
 import Footernew from "@/app/footernew";
 import AboutSection from "./aboutus";
 import MeetDoctors from "./meetdoctor";
+
 export default function Page(){
   return <div>
       <WhyChooseUs/>
