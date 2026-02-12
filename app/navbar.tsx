@@ -81,47 +81,25 @@ export default function Navbar() {
               </ul>
             </div>
 
-            {/* --- Actions & Socials Section --- */}
+            {/* --- Desktop Actions & Socials --- */}
             <div className="hidden lg:flex items-center gap-8">
-              
               <div className="flex items-center gap-2 p-1 bg-slate-100/50 rounded-2xl border border-slate-200/50">
-                <a 
-                  href="https://facebook.com" 
-                  target="_blank" 
-                  className="p-2 text-slate-400 hover:text-[#1877F2] hover:bg-white hover:shadow-md transition-all duration-300 rounded-xl group"
-                >
-                  <Facebook size={20} className="group-hover:scale-110 group-active:scale-90" />
+                <a href="https://facebook.com" target="_blank" className="p-2 text-slate-400 hover:text-[#1877F2] hover:bg-white hover:shadow-md transition-all duration-300 rounded-xl group">
+                  <Facebook size={20} className="group-hover:scale-110" />
                 </a>
-                <a 
-                  href="https://instagram.com" 
-                  target="_blank"
-                  className="p-2 text-slate-400 hover:text-[#E4405F] hover:bg-white hover:shadow-md transition-all duration-300 rounded-xl group"
-                >
-                  <Instagram size={20} className="group-hover:scale-110 group-active:scale-90" />
+                <a href="https://instagram.com" target="_blank" className="p-2 text-slate-400 hover:text-[#E4405F] hover:bg-white hover:shadow-md transition-all duration-300 rounded-xl group">
+                  <Instagram size={20} className="group-hover:scale-110" />
                 </a>
-                
-                {/* Custom WhatsApp Icon with URL */}
-                <a 
-                  href="https://wa.me/918190027273" 
-                  target="_blank"
-                  className="p-2 flex items-center justify-center hover:bg-white hover:shadow-md transition-all duration-300 rounded-xl group relative"
-                >
+                <a href="https://wa.me/918190027273" target="_blank" className="p-2 flex items-center justify-center hover:bg-white hover:shadow-md transition-all duration-300 rounded-xl group relative">
                   <span className="absolute top-1 right-1 flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                   </span>
-                  <img 
-                    src="https://cdn-icons-png.flaticon.com/128/5968/5968841.png" 
-                    alt="WhatsApp"
-                    className="w-5 h-5 grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110 group-active:scale-90"
-                  />
+                  <img src="https://cdn-icons-png.flaticon.com/128/5968/5968841.png" alt="WhatsApp" className="w-5 h-5 grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110" />
                 </a>
               </div>
 
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="group relative px-8 py-3 bg-blue-700 text-white font-black text-[10px] uppercase tracking-[0.2em] rounded-full overflow-hidden transition-all hover:shadow-[0_10px_25px_rgba(30,64,175,0.3)] active:scale-95"
-              >
+              <button onClick={() => setIsModalOpen(true)} className="group relative px-8 py-3 bg-blue-700 text-white font-black text-[10px] uppercase tracking-[0.2em] rounded-full overflow-hidden transition-all hover:shadow-[0_10px_25px_rgba(30,64,175,0.3)] active:scale-95">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-indigo-700 group-hover:scale-105 transition-transform" />
                 <span className="relative z-10 flex items-center gap-2">
                   Book Visit <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -130,55 +108,41 @@ export default function Navbar() {
             </div>
 
             {/* --- Mobile Toggle --- */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-slate-900 transition-colors hover:bg-slate-50 rounded-lg"
-            >
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 text-slate-900 transition-colors hover:bg-slate-50 rounded-lg">
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
         {/* --- Mobile Drawer --- */}
-        <div 
-          className={`lg:hidden absolute top-0 left-0 w-full h-screen bg-white/98 backdrop-blur-2xl transition-all duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] ${
-            mobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
-          }`}
-        >
+        <div className={`lg:hidden absolute top-0 left-0 w-full h-screen bg-white/98 backdrop-blur-2xl transition-all duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] ${mobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"}`}>
             <div className="flex flex-col h-full justify-center px-10 space-y-8">
                 <div className="flex justify-between items-center mb-8">
                   <p className="text-blue-600 text-[10px] font-black uppercase tracking-[0.5em]">Menu</p>
                   <button onClick={() => setMobileMenuOpen(false)} className="p-2 bg-slate-100 rounded-full"><X size={20}/></button>
                 </div>
                 {navLinks.map((link, i) => (
-                    <Link
-                        key={link.name}
-                        href={link.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className={`text-5xl font-serif transition-all duration-500 hover:text-blue-600 ${
-                            pathname === link.href ? "text-blue-700 translate-x-4 font-bold" : "text-slate-900"
-                        }`}
-                        style={{ transitionDelay: `${i * 70}ms` }}
-                    >
+                    <Link key={link.name} href={link.href} onClick={() => setMobileMenuOpen(false)} className={`text-5xl font-serif transition-all duration-500 hover:text-blue-600 ${pathname === link.href ? "text-blue-700 translate-x-4 font-bold" : "text-slate-900"}`} style={{ transitionDelay: `${i * 70}ms` }}>
                         {link.name}
                     </Link>
                 ))}
                 
                 <div className="pt-10 flex flex-col gap-6">
-                    <button
-                        onClick={() => { setIsModalOpen(true); setMobileMenuOpen(false); }}
-                        className="w-full bg-blue-700 text-white py-6 rounded-2xl font-black uppercase tracking-widest text-xs shadow-xl shadow-blue-900/20"
-                    >
+                    <button onClick={() => { setIsModalOpen(true); setMobileMenuOpen(false); }} className="w-full bg-blue-700 text-white py-6 rounded-2xl font-black uppercase tracking-widest text-xs shadow-xl shadow-blue-900/20">
                         Schedule Appointment
                     </button>
+                    
+                    {/* --- FIXED MOBILE SOCIAL LINKS --- */}
                     <div className="flex justify-center gap-6 p-4 bg-slate-50 rounded-2xl">
-                        <Facebook size={28} className="text-slate-400 hover:text-[#1877F2]" />
-                        <Instagram size={28} className="text-slate-400 hover:text-[#E4405F]" />
-                        <img 
-                          src="https://cdn-icons-png.flaticon.com/128/5968/5968841.png" 
-                          className="w-7 h-7" 
-                          alt="WhatsApp" 
-                        />
+                        <a href="https://facebook.com" target="_blank" className="p-2 bg-white rounded-xl shadow-sm text-slate-400 hover:text-[#1877F2]">
+                          <Facebook size={28} />
+                        </a>
+                        <a href="https://instagram.com" target="_blank" className="p-2 bg-white rounded-xl shadow-sm text-slate-400 hover:text-[#E4405F]">
+                          <Instagram size={28} />
+                        </a>
+                        <a href="https://wa.me/918190027273" target="_blank" className="p-2 bg-white rounded-xl shadow-sm">
+                          <img src="https://cdn-icons-png.flaticon.com/128/5968/5968841.png" className="w-7 h-7" alt="WhatsApp" />
+                        </a>
                     </div>
                 </div>
             </div>
