@@ -38,7 +38,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="flex items-center justify-between">
             
-            {/* --- Logo Section with Interactive Glow --- */}
+            {/* --- Logo Section --- */}
             <Link href="/" className="group flex items-center gap-4 outline-none">
               <div className="relative w-12 h-12 transition-all duration-500 group-hover:scale-110">
                 <div className="absolute inset-0 bg-blue-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -60,7 +60,7 @@ export default function Navbar() {
               </div>
             </Link>
 
-            {/* --- Desktop Navigation (Permanent Floating Pill Style) --- */}
+            {/* --- Desktop Navigation --- */}
             <div className="hidden lg:flex items-center px-2 py-1 rounded-full border border-slate-100 bg-slate-50/50 backdrop-blur-sm shadow-inner">
               <ul className="flex items-center gap-1">
                 {navLinks.map((link) => (
@@ -81,14 +81,40 @@ export default function Navbar() {
               </ul>
             </div>
 
-            {/* --- Actions Section --- */}
+            {/* --- Actions & Socials Section --- */}
             <div className="hidden lg:flex items-center gap-8">
-              <div className="flex gap-4">
-                <a href="#" className="text-slate-400 hover:text-blue-600 transition-all hover:scale-125">
-                  <Facebook size={18} />
+              
+              <div className="flex items-center gap-2 p-1 bg-slate-100/50 rounded-2xl border border-slate-200/50">
+                <a 
+                  href="https://facebook.com" 
+                  target="_blank" 
+                  className="p-2 text-slate-400 hover:text-[#1877F2] hover:bg-white hover:shadow-md transition-all duration-300 rounded-xl group"
+                >
+                  <Facebook size={20} className="group-hover:scale-110 group-active:scale-90" />
                 </a>
-                <a href="#" className="text-slate-400 hover:text-blue-600 transition-all hover:scale-125">
-                  <Instagram size={18} />
+                <a 
+                  href="https://instagram.com" 
+                  target="_blank"
+                  className="p-2 text-slate-400 hover:text-[#E4405F] hover:bg-white hover:shadow-md transition-all duration-300 rounded-xl group"
+                >
+                  <Instagram size={20} className="group-hover:scale-110 group-active:scale-90" />
+                </a>
+                
+                {/* Custom WhatsApp Icon with URL */}
+                <a 
+                  href="https://wa.me/918190027273" 
+                  target="_blank"
+                  className="p-2 flex items-center justify-center hover:bg-white hover:shadow-md transition-all duration-300 rounded-xl group relative"
+                >
+                  <span className="absolute top-1 right-1 flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <img 
+                    src="https://cdn-icons-png.flaticon.com/128/5968/5968841.png" 
+                    alt="WhatsApp"
+                    className="w-5 h-5 grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110 group-active:scale-90"
+                  />
                 </a>
               </div>
 
@@ -113,7 +139,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* --- Mobile Drawer (Always Ready Glassmorphism) --- */}
+        {/* --- Mobile Drawer --- */}
         <div 
           className={`lg:hidden absolute top-0 left-0 w-full h-screen bg-white/98 backdrop-blur-2xl transition-all duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] ${
             mobileMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
@@ -145,9 +171,14 @@ export default function Navbar() {
                     >
                         Schedule Appointment
                     </button>
-                    <div className="flex justify-center gap-10 text-slate-400">
-                        <Facebook size={24} className="hover:text-blue-600" />
-                        <Instagram size={24} className="hover:text-blue-600" />
+                    <div className="flex justify-center gap-6 p-4 bg-slate-50 rounded-2xl">
+                        <Facebook size={28} className="text-slate-400 hover:text-[#1877F2]" />
+                        <Instagram size={28} className="text-slate-400 hover:text-[#E4405F]" />
+                        <img 
+                          src="https://cdn-icons-png.flaticon.com/128/5968/5968841.png" 
+                          className="w-7 h-7" 
+                          alt="WhatsApp" 
+                        />
                     </div>
                 </div>
             </div>
