@@ -68,7 +68,7 @@ export default function AppointmentModal({ open, onClose }: AppointmentModalProp
             
             <div className="relative z-10 w-full aspect-[3/4] rounded-3xl overflow-hidden border-[8px] border-white shadow-2xl">
               <img 
-                src="https://kimayaclinique.com/image/ban-1.webp" 
+                src="./img1.png" 
                 alt="Clinic Professional" 
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
               />
