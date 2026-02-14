@@ -1,18 +1,19 @@
 "use client";
-export const dynamic = "force-dynamic";
+
 import React, { useState, useEffect } from "react";
 import AppointmentModal from "./appointmentpage";
 import Link from "next/link";
 import { Sparkles, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
-    "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1920&q=80",
-    "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80",
-    "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1920&q=80",
+    "/img1.png",
+    "/img2.png",
+    "/img3.png",
   ];
 
   useEffect(() => {
@@ -36,18 +37,24 @@ export default function Home() {
         {/* Background Image Slideshow */}
         <div className="absolute inset-0 z-0">
           {images.map((img, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
-                index === currentImage ? "opacity-100" : "opacity-0"
-              }`}
-              style={{
-                backgroundImage: `linear-gradient(to right, rgba(15,23,42,0.95), rgba(15,23,42,0.7)), url(${img})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            />
-          ))}
+  <div
+    key={index}
+    className={`absolute inset-0 transition-opacity duration-1000 ${
+      index === currentImage ? "opacity-100" : "opacity-0"
+    }`}
+  >
+    <Image
+      src={img}
+      alt="Dental clinic background"
+      fill
+      priority={index === 0}
+      sizes="100vw"
+      className="object-cover"
+    />
+
+    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 to-slate-950/70" />
+  </div>
+))}
         </div>
 
         {/* Animated Gradient Overlay */}
