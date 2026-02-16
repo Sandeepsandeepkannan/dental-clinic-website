@@ -11,7 +11,7 @@ export default function Page(){
    <Dentalinabout/>
      <MeetDoctors/>
     <AboutSection/>
-  <Footernew/>
+
       
      
       

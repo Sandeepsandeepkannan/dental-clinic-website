@@ -27,8 +27,7 @@ export default function Page() {
         <ContactForm />
       </section>
 
-      {/* Footer */}
-      <Footernew />
+    
       
     </div>
   );

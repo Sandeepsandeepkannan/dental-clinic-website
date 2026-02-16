@@ -12,7 +12,7 @@ export default function App() {
            <Home/>
             <DentalInfoSectionpage/>
            <PrivilegeServices/> 
-           <Footernew/> 
+          
         </div>
   );
 }
