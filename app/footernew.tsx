@@ -14,9 +14,9 @@ import {
 
 /* -------- Move Static Data Outside Component -------- */
 const QUICK_LINKS = [
+  { name: "Home", href: "/" },
   { name: "About us", href: "/aboutpage/aboutservices" },
   { name: "Our services", href: "/servicepage" },
-  { name: "Blog", href: "/blog" },
   { name: "Contact us", href: "/contactpage" }
 ];
 const WHATSAPP_NUMBER = "8190027273";
