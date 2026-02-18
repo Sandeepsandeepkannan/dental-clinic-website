@@ -1,7 +1,14 @@
+"use client";
+
+import React, { useState } from "react"; // Added useState
 import Image from "next/image";
 import { Microscope, Stethoscope } from "lucide-react";
+import AppointmentModal from "@/app/appointmentpage";
 
 export default function AboutSection() {
+  // 1. Initialize modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section className="bg-white py-24 md:py-32 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -9,12 +16,10 @@ export default function AboutSection() {
 
           {/* Left Image */}
           <div className="relative animate-in fade-in slide-in-from-left-10 duration-1000">
-
             <div className="absolute -top-10 -left-10 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl" />
 
             <div className="relative group">
               <div className="relative h-[500px] md:h-[700px] rounded-[3rem] overflow-hidden border-[12px] border-slate-50 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
-
                 <Image
                   src="/img3.3.png"
                   alt="Aesthetiq clinical professional providing personalized care"
@@ -23,7 +28,6 @@ export default function AboutSection() {
                   className="object-cover"
                   loading="lazy"
                 />
-
               </div>
 
               {/* Experience Badge */}
@@ -42,7 +46,6 @@ export default function AboutSection() {
 
           {/* Right Content */}
           <div className="flex flex-col space-y-8 animate-in fade-in slide-in-from-right-10 duration-1000 delay-200">
-
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-[1px] bg-blue-700" />
@@ -67,16 +70,13 @@ export default function AboutSection() {
 
             {/* Features */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-
               <div className="flex items-start gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-700 transition-transform group-hover:scale-110">
                   <Stethoscope size={20} aria-hidden="true" />
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900">Specialized Team</h4>
-                  <p className="text-sm text-slate-500">
-                    Expert endodontists & surgeons.
-                  </p>
+                  <p className="text-sm text-slate-500">Expert endodontists & surgeons.</p>
                 </div>
               </div>
 
@@ -85,15 +85,10 @@ export default function AboutSection() {
                   <Microscope size={20} aria-hidden="true" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900">
-                    Affordable Luxury
-                  </h4>
-                  <p className="text-sm text-slate-500">
-                    Quality care without compromise.
-                  </p>
+                  <h4 className="font-bold text-slate-900">Affordable Luxury</h4>
+                  <p className="text-sm text-slate-500">Quality care without compromise.</p>
                 </div>
               </div>
-
             </div>
 
             {/* Quote */}
@@ -104,19 +99,26 @@ export default function AboutSection() {
               </p>
             </div>
 
-            {/* CTA */}
+            {/* CTA - Trigger Modal */}
             <div className="pt-4">
               <button
-                aria-label="Discover our dental services"
+                // 2. Added onClick to trigger the modal
+                onClick={() => setIsModalOpen(true)}
+                aria-label="Book an appointment"
                 className="bg-blue-700 hover:bg-slate-900 text-white px-10 py-5 rounded-xl font-bold transition-all shadow-xl shadow-blue-900/20 active:scale-95 uppercase text-xs tracking-[0.2em]"
               >
                 Discover Our Services
               </button>
             </div>
-
           </div>
         </div>
       </div>
+
+      {/* 3. Render the Modal */}
+      <AppointmentModal 
+        open={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   );
 }

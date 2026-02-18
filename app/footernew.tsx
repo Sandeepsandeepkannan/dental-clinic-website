@@ -29,9 +29,11 @@ function Footernew() {
   };
 
   return (
-    <footer className="bg-slate-900 text-slate-300 font-sans border-t border-white/5">
+    // Changed bg-slate-900 to bg-black and updated border color
+    <footer className="bg-black text-slate-300 font-sans border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
-        {/* Main Grid: 1 col on mobile, 2 col on sm, 4 col on lg */}
+        
+        {/* Main Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-8">
 
           {/* Column 1: Brand & Bio */}
@@ -40,7 +42,7 @@ function Footernew() {
               <h2 className="text-3xl font-serif text-white tracking-tight mb-1">
                 Aesthetiq
               </h2>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-blue-400 font-black">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-blue-500 font-black">
                 Foundation
               </p>
             </div>
@@ -60,7 +62,7 @@ function Footernew() {
               <a
                 href="#"
                 aria-label="Instagram"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-pink-600 hover:text-white transition-all transform active:scale-90"
+                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#E4405F] hover:text-white transition-all transform active:scale-90"
               >
                 <Instagram size={18} aria-hidden="true" />
               </a>
@@ -69,14 +71,14 @@ function Footernew() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-green-600 hover:text-white transition-all transform active:scale-90"
+                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all transform active:scale-90"
               >
                 <MessageCircle size={18} aria-hidden="true" />
               </a>
             </div>
           </div>
 
-          {/* Column 2: Quick Links - Better Tap Targets */}
+          {/* Column 2: Quick Links */}
           <div className="space-y-6">
             <h3 className="text-sm uppercase tracking-widest text-white font-bold border-b border-white/10 pb-4">
               Quick Links
@@ -86,7 +88,7 @@ function Footernew() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm py-1 hover:text-blue-400 transition-colors inline-block w-full md:w-auto"
+                    className="text-sm py-1 hover:text-blue-500 transition-colors inline-block w-full md:w-auto"
                   >
                     {link.name}
                   </Link>
@@ -101,7 +103,7 @@ function Footernew() {
               Clinical Hours
             </h3>
             <div className="flex items-start gap-3">
-              <Clock className="text-blue-400 mt-1 shrink-0" size={18} aria-hidden="true" />
+              <Clock className="text-blue-500 mt-1 shrink-0" size={18} aria-hidden="true" />
               <div className="text-sm">
                 <p className="text-white font-medium">Monday - Sunday</p>
                 <p className="text-slate-400 mt-1">10:30 am - 08:30 pm</p>
@@ -117,7 +119,7 @@ function Footernew() {
             <div className="space-y-5">
               <a
                 href={`https://wa.me/91${WHATSAPP_NUMBER}`}
-                className="flex items-center gap-3 group bg-white/5 p-3 rounded-2xl md:bg-transparent md:p-0"
+                className="flex items-center gap-3 group bg-white/5 p-3 rounded-2xl md:bg-transparent md:p-0 transition-colors hover:bg-white/10"
               >
                 <div className="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 group-hover:bg-green-500 group-hover:text-white transition-all shrink-0">
                   <MessageCircle size={16} aria-hidden="true" />
@@ -126,7 +128,7 @@ function Footernew() {
               </a>
 
               <div className="flex items-start gap-3">
-                <MapPin className="text-blue-400 mt-1 shrink-0" size={18} aria-hidden="true" />
+                <MapPin className="text-blue-500 mt-1 shrink-0" size={18} aria-hidden="true" />
                 <div className="text-sm text-slate-400 leading-relaxed">
                   <span className="text-white font-medium block">Anna Nagar</span>
                   AD Block, No 1, 1st Floor, 2nd Ave, Chennai, 600040
@@ -134,8 +136,8 @@ function Footernew() {
               </div>
 
               <a href="mailto:info@aesthetiqclinique.com" className="flex items-center gap-3 group">
-                <Mail className="text-blue-400 group-hover:scale-110 transition-transform shrink-0" size={18} aria-hidden="true" />
-                <span className="text-sm break-all">info@aesthetiqclinique.com</span>
+                <Mail className="text-blue-500 group-hover:scale-110 transition-transform shrink-0" size={18} aria-hidden="true" />
+                <span className="text-sm break-all text-slate-400 group-hover:text-white transition-colors">info@aesthetiqclinique.com</span>
               </a>
             </div>
           </div>
@@ -144,7 +146,7 @@ function Footernew() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/5 bg-slate-950 py-8 px-6">
+      <div className="border-t border-white/5 bg-black py-8 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[10px] text-slate-500 uppercase tracking-widest text-center md:text-left">
             © {currentYear} Aesthetiq Foundation. Clinical Precision in Aesthetics.
@@ -153,10 +155,10 @@ function Footernew() {
           <button 
             onClick={scrollToTop}
             aria-label="Back to top"
-            className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-blue-400 hover:text-white transition-colors"
+            className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-blue-500 hover:text-white transition-colors group"
           >
             <span>Back to top</span>
-            <div className="p-2 bg-white/5 rounded-full">
+            <div className="p-2 bg-white/5 rounded-full group-hover:bg-blue-600 transition-all">
               <ArrowUp size={14} />
             </div>
           </button>
