@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./global.css";
 import Navbar from "./navbar";
-import footernew from "./footernew";
+import AesthetiqAIChat from "./aesthetiqchat";
 import Footernew from "./footernew";
 // Optimized Font Loading to fix Performance SI (Speed Index)
 const geistSans = Geist({
@@ -36,7 +36,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
 export default function RootLayout({
   children,
 }: {
@@ -44,17 +43,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body 
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-white text-gray-900`}
-      >
-        {/* Navbar */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-white text-gray-900`}>
         <Navbar />
 
-        {/* Main content with proper semantics */}
-        <main id="main-content" className="min-h-screen">
+        <main id="main-content" className="min-h-screen relative">
           {children}
         </main>
-        <Footernew/>
+        
+        <Footernew />
+
+        {/* MOVE IT HERE - At the very end of the body */}
+        <AesthetiqAIChat /> 
       </body>
     </html>
   );

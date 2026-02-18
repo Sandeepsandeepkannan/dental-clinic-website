@@ -1,8 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { ShieldCheck, UserCheck, MapPin, Award, Star } from "lucide-react";
+// Ensure this path is correct based on your file structure
+import AppointmentModal from "./appointmentpage"; 
 
 /* ---------- Static Data Outside Component ---------- */
 const EXPERTS = [
@@ -10,7 +12,6 @@ const EXPERTS = [
     name: "Dr. Sanjay Sundararajan",
     title: "Chief Orthodontist",
     desc: "Specialist in digital smile correction and advanced Invisalign® clear aligner therapy.",
-    // Updated with high-quality clinical stock image
     image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1000&auto=format&fit=crop", 
   },
   {
@@ -28,6 +29,8 @@ const EXPERTS = [
 ];
 
 function DentalInfoSectionpage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section className="bg-slate-50 py-16 md:py-32 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -82,7 +85,6 @@ function DentalInfoSectionpage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             {EXPERTS.map((doc, index) => (
               <article key={index} className="group relative">
-                {/* Image Container */}
                 <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2.5rem] bg-slate-200 shadow-2xl mb-8">
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60 z-10" />
                   
@@ -94,7 +96,6 @@ function DentalInfoSectionpage() {
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
 
-                  {/* Floating Doctor Badge */}
                   <div className="absolute bottom-6 left-6 right-6 z-20">
                     <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl transform transition-transform duration-500 group-hover:-translate-y-2">
                        <p className="text-blue-400 text-[10px] uppercase font-black tracking-widest mb-1">{doc.title}</p>
@@ -103,7 +104,6 @@ function DentalInfoSectionpage() {
                   </div>
                 </div>
 
-                {/* Content Area Below Image */}
                 <div className="px-4 text-left space-y-4">
                   <div className="flex items-center gap-1 text-yellow-500">
                     {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="currentColor" />)}
@@ -114,7 +114,11 @@ function DentalInfoSectionpage() {
                     {doc.desc}
                   </p>
 
-                  <button className="flex items-center gap-2 text-blue-700 font-bold text-xs uppercase tracking-widest group-hover:gap-3 transition-all">
+                  <button 
+                    onClick={() => setIsModalOpen(true)}
+                    suppressHydrationWarning
+                    className="flex items-center gap-2 text-blue-700 font-bold text-xs uppercase tracking-widest group-hover:gap-3 transition-all"
+                  >
                     View Portfolio <UserCheck size={14} />
                   </button>
                 </div>
@@ -127,6 +131,12 @@ function DentalInfoSectionpage() {
           </footer>
         </div>
       </div>
+
+      {/* Appointment Modal Integration */}
+      <AppointmentModal 
+        open={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   );
 }
