@@ -10,7 +10,7 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
 
-  const images = ["/img2.png", "/img3.3.png", "/img3.png"];
+  const images = ["/img2.png", "/img1.png", "/img3.3.png"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -28,7 +28,7 @@ export default function Home() {
 
       <section className="relative min-h-[100dvh] w-full overflow-hidden flex items-center bg-black">
         
-        {/* Background Image Slideshow */}
+        {/* Background Image Slideshow - SHADING REMOVED */}
         <div className="absolute inset-0 z-0">
           {images.map((img, index) => (
             <div
@@ -47,7 +47,7 @@ export default function Home() {
                 className="object-cover object-center md:object-right-top"
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 md:bg-gradient-to-r md:from-black/95 md:via-black/40 md:to-transparent" />
+              {/* The gradient overlay div has been removed from here */}
             </div>
           ))}
         </div>
@@ -56,13 +56,13 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Content */}
-            <div className="text-white lg:col-span-7">
-              <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-7xl xl:text-9xl font-serif leading-[1.1] mb-6 md:mb-8 animate-in fade-in slide-in-from-bottom-6 duration-1000">
+            <div className="text-white lg:col-span-7 -ml-14 mt-10">
+              <h1 className="text-5xl text-black sm:text-7xl md:text-8xl lg:text-7xl xl:text-9xl font-serif leading-[1.1] mb-6 md:mb-8 animate-in fade-in slide-in-from-bottom-6 duration-1000">
                 Glow with <br />
                 <span className="text-blue-500 italic font-medium">Confidence.</span>
               </h1>
               
-              <p className="text-base sm:text-xl md:text-2xl mb-8 md:mb-12 leading-relaxed max-w-lg text-slate-300 font-light animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
+              <p className="text-base sm:text-xl md:text-2xl mb-8 md:mb-12 leading-relaxed max-w-lg text-black  animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
                 Your partner for healthy, radiant skin. We specialize in expert acne solutions 
                 and advanced anti-aging treatments tailored for you.
               </p>
@@ -89,7 +89,6 @@ export default function Home() {
             </div>
 
             {/* Right Content: Consultation Form */}
-            {/* Added justify-self-end and negative right margin to push it further right */}
             <div className="lg:col-span-5 justify-self-end animate-in fade-in slide-in-from-right-8 duration-1000 delay-500 hidden lg:block pt-15 mt-7 lg:pl-16 lg:-mr-12">
               <div className="bg-white rounded-[2.5rem] p-10 shadow-2xl w-full max-w-[420px] border border-white/20">
                 <div className="text-center space-y-1 mb-6">
