@@ -114,15 +114,9 @@ function Navbar() {
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-6">
               {/* AI Assistant Button */}
-              <button 
-                onClick={triggerChat}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-[10px] font-black uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all duration-300"
-              >
-                <MessageSquare size={14} />
-                AI Assistant
-              </button>
+             
 
-              <div className="h-8 w-px bg-white/10 mx-2" />
+              
 
               <button
                 onClick={() => setIsModalOpen(true)}
