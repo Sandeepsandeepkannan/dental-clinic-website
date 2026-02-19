@@ -56,13 +56,13 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Content */}
-            <div className="text-white lg:col-span-7 -ml-14 mt-10">
-              <h1 className="text-5xl text-black sm:text-7xl md:text-8xl lg:text-7xl xl:text-9xl font-serif leading-[1.1] mb-6 md:mb-8 animate-in fade-in slide-in-from-bottom-6 duration-1000">
+            <div className="text-white lg:col-span-7 lg:-ml-14 mt-10">
+              <h1 className="text-5xl text-white sm:text-7xl md:text-8xl lg:text-7xl xl:text-9xl font-serif leading-[1.1] mb-6 md:mb-8 animate-in fade-in slide-in-from-bottom-6 duration-1000">
                 Glow with <br />
                 <span className="text-blue-500 italic font-medium">Confidence.</span>
               </h1>
               
-              <p className="text-base sm:text-xl md:text-2xl mb-8 md:mb-12 leading-relaxed max-w-lg text-black  animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
+              <p className="text-base sm:text-xl md:text-2xl mb-8 md:mb-12 leading-relaxed max-w-lg text-white  animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
                 Your partner for healthy, radiant skin. We specialize in expert acne solutions 
                 and advanced anti-aging treatments tailored for you.
               </p>
@@ -78,12 +78,7 @@ export default function Home() {
                 </button>
                 
                 <Link href="/servicepage" className="w-full sm:w-auto">
-                  <button 
-                    aria-label="Explore our services"
-                    className="border border-white/20 bg-white/5 hover:bg-white hover:text-slate-900 text-white px-8 md:px-10 py-4 md:py-5 font-bold transition-all w-full rounded-2xl tracking-widest text-[10px] md:text-xs uppercase backdrop-blur-md"
-                  >
-                    Explore Services
-                  </button>
+                  
                 </Link>
               </div>
             </div>

@@ -11,8 +11,8 @@ export default function App() {
   
   return ( <div>
            <Home/> 
-            <DentalInfoSectionpage/>
             <PrivilegeServices/> 
+            <DentalInfoSectionpage/>
             <InternationalPatientsSection/>
         </div>
   );
