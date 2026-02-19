@@ -19,6 +19,7 @@ const NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "About us", href: "/aboutpage/aboutservices" },
   { name: "Services", href: "/servicepage" },
+  { name: "International Clients", href: "/internationalclients" },
   { name: "Contact us", href: "/contactpage" },
 ];
 
