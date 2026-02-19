@@ -89,7 +89,7 @@ const DentalServicePage = () => {
                   <svg width="32" height="32" className="md:w-[42px] md:h-[42px]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-5 0-5 4-5 4s0 4 2 6c-2 2-2 6-2 6s0 4 5 4 5-4 5-4 0-4-2-6c2-2 2-6 2-6s0-4-5-4Z"/></svg>
                </div>
             </div>
-            <h3 className="text-[#1a237e] text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center">Treatment at Acharya Dental</h3>
+            <h3 className="text-[#1a237e] text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center">Treatment at Aesthetiq Foundation</h3>
             <p className="text-slate-600 leading-relaxed text-sm md:text-[15px] text-center md:text-left">
               You will be brought to our clinic as per your scheduled appointment. Our expert team of doctors will do a complete examination using relevant diagnostic aids. A definitive treatment plan will be discussed with you in detail. On your approval, the necessary treatment will be commenced.
             </p>
