@@ -68,17 +68,29 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500">
-                <button 
+               <button
+
                   onClick={() => setIsModalOpen(true)}
+
                   aria-label="Book an appointment"
+
                   className="group flex items-center justify-center gap-3 bg-blue-700 hover:bg-white hover:text-blue-900 text-white px-8 md:px-10 py-4 md:py-5 font-bold transition-all transform active:scale-95 shadow-2xl shadow-blue-900/40 rounded-2xl tracking-widest text-[10px] md:text-xs uppercase"
+
                 >
+
                   <span>Book Appointment</span>
+
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-2" />
+
                 </button>
-                
-                <Link href="/servicepage" className="w-full sm:w-auto">
-                  
+
+              <Link href="/servicepage" className="w-full sm:w-auto">
+                <button 
+                  aria-label="Explore our services"
+                  className="bg-blue-700 hover:bg-white hover:text-blue-900 text-white px-8 md:px-10 py-4 md:py-5 font-bold transition-all w-full transform active:scale-95 shadow-2xl shadow-blue-900/40 rounded-2xl tracking-widest text-[10px] md:text-xs uppercase"
+                >
+                  Explore Services
+                </button>
                 </Link>
               </div>
             </div>
